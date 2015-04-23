@@ -17,6 +17,8 @@
 		DA9F4CCB1AE0EE330088D177 /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CCA1AE0EE330088D177 /* TestTests.m */; };
 		DA9F4CD61AE207B20088D177 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CD51AE207B20088D177 /* CollectionViewController.m */; };
 		DA9F4CD91AE207E40088D177 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */; };
+		DAB8BA911AE8AF56009816DB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB8BA901AE8AF56009816DB /* CoreLocation.framework */; };
+		DAB8BA931AE8AF61009816DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB8BA921AE8AF61009816DB /* MapKit.framework */; };
 		DAE0294D1AE363960083612F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE0294C1AE363960083612F /* PageViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		DA9F4CD51AE207B20088D177 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		DA9F4CD71AE207E40088D177 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		DAB8BA901AE8AF56009816DB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DAB8BA921AE8AF61009816DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DAE0294B1AE363960083612F /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		DAE0294C1AE363960083612F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB8BA931AE8AF61009816DB /* MapKit.framework in Frameworks */,
+				DAB8BA911AE8AF56009816DB /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +81,8 @@
 		DA9F4C9F1AE0EE320088D177 = {
 			isa = PBXGroup;
 			children = (
+				DAB8BA921AE8AF61009816DB /* MapKit.framework */,
+				DAB8BA901AE8AF56009816DB /* CoreLocation.framework */,
 				DA9F4CAA1AE0EE320088D177 /* Test */,
 				DA9F4CC71AE0EE330088D177 /* TestTests */,
 				DA9F4CA91AE0EE320088D177 /* Products */,

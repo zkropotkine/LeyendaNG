@@ -15,6 +15,9 @@
 		DA9F4CBC1AE0EE320088D177 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9F4CBB1AE0EE320088D177 /* Images.xcassets */; };
 		DA9F4CBF1AE0EE330088D177 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA9F4CBD1AE0EE320088D177 /* LaunchScreen.xib */; };
 		DA9F4CCB1AE0EE330088D177 /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CCA1AE0EE330088D177 /* TestTests.m */; };
+		DA9F4CD61AE207B20088D177 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CD51AE207B20088D177 /* CollectionViewController.m */; };
+		DA9F4CD91AE207E40088D177 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */; };
+		DAE0294D1AE363960083612F /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE0294C1AE363960083612F /* PageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA9F4CA81AE0EE320088D177 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9F4CA81AE0EE320088D177 /* LeyendaNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeyendaNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9F4CAC1AE0EE320088D177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA9F4CAD1AE0EE320088D177 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA9F4CAF1AE0EE320088D177 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,9 +43,15 @@
 		DA9F4CB91AE0EE320088D177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA9F4CBB1AE0EE320088D177 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DA9F4CBE1AE0EE320088D177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		DA9F4CC41AE0EE330088D177 /* TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA9F4CC41AE0EE330088D177 /* LeyendaNGLeyendaNGs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeyendaNGLeyendaNGs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9F4CC91AE0EE330088D177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA9F4CCA1AE0EE330088D177 /* TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTests.m; sourceTree = "<group>"; };
+		DA9F4CD41AE207B20088D177 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		DA9F4CD51AE207B20088D177 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		DA9F4CD71AE207E40088D177 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		DAE0294B1AE363960083612F /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		DAE0294C1AE363960083612F /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +84,8 @@
 		DA9F4CA91AE0EE320088D177 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA9F4CA81AE0EE320088D177 /* Test.app */,
-				DA9F4CC41AE0EE330088D177 /* TestTests.xctest */,
+				DA9F4CA81AE0EE320088D177 /* LeyendaNG.app */,
+				DA9F4CC41AE0EE330088D177 /* LeyendaNGLeyendaNGs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +100,12 @@
 				DA9F4CB51AE0EE320088D177 /* SecondViewController.h */,
 				DA9F4CB61AE0EE320088D177 /* SecondViewController.m */,
 				DA9F4CB81AE0EE320088D177 /* Main.storyboard */,
+				DA9F4CD71AE207E40088D177 /* CollectionViewCell.h */,
+				DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */,
+				DA9F4CD41AE207B20088D177 /* CollectionViewController.h */,
+				DA9F4CD51AE207B20088D177 /* CollectionViewController.m */,
+				DAE0294B1AE363960083612F /* PageViewController.h */,
+				DAE0294C1AE363960083612F /* PageViewController.m */,
 				DA9F4CBB1AE0EE320088D177 /* Images.xcassets */,
 				DA9F4CBD1AE0EE320088D177 /* LaunchScreen.xib */,
 				DA9F4CAB1AE0EE320088D177 /* Supporting Files */,
@@ -127,9 +142,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DA9F4CA71AE0EE320088D177 /* Test */ = {
+		DA9F4CA71AE0EE320088D177 /* LeyendaNG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA9F4CCE1AE0EE330088D177 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = DA9F4CCE1AE0EE330088D177 /* Build configuration list for PBXNativeTarget "LeyendaNG" */;
 			buildPhases = (
 				DA9F4CA41AE0EE320088D177 /* Sources */,
 				DA9F4CA51AE0EE320088D177 /* Frameworks */,
@@ -139,14 +154,14 @@
 			);
 			dependencies = (
 			);
-			name = Test;
+			name = LeyendaNG;
 			productName = Test;
-			productReference = DA9F4CA81AE0EE320088D177 /* Test.app */;
+			productReference = DA9F4CA81AE0EE320088D177 /* LeyendaNG.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DA9F4CC31AE0EE330088D177 /* TestTests */ = {
+		DA9F4CC31AE0EE330088D177 /* LeyendaNGLeyendaNGs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA9F4CD11AE0EE330088D177 /* Build configuration list for PBXNativeTarget "TestTests" */;
+			buildConfigurationList = DA9F4CD11AE0EE330088D177 /* Build configuration list for PBXNativeTarget "LeyendaNGLeyendaNGs" */;
 			buildPhases = (
 				DA9F4CC01AE0EE330088D177 /* Sources */,
 				DA9F4CC11AE0EE330088D177 /* Frameworks */,
@@ -157,9 +172,9 @@
 			dependencies = (
 				DA9F4CC61AE0EE330088D177 /* PBXTargetDependency */,
 			);
-			name = TestTests;
+			name = LeyendaNGLeyendaNGs;
 			productName = TestTests;
-			productReference = DA9F4CC41AE0EE330088D177 /* TestTests.xctest */;
+			productReference = DA9F4CC41AE0EE330088D177 /* LeyendaNGLeyendaNGs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -173,6 +188,7 @@
 				TargetAttributes = {
 					DA9F4CA71AE0EE320088D177 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = YEG548UG49;
 					};
 					DA9F4CC31AE0EE330088D177 = {
 						CreatedOnToolsVersion = 6.3;
@@ -180,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DA9F4CA31AE0EE320088D177 /* Build configuration list for PBXProject "Test" */;
+			buildConfigurationList = DA9F4CA31AE0EE320088D177 /* Build configuration list for PBXProject "LeyendaNG" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -193,8 +209,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA9F4CA71AE0EE320088D177 /* Test */,
-				DA9F4CC31AE0EE330088D177 /* TestTests */,
+				DA9F4CA71AE0EE320088D177 /* LeyendaNG */,
+				DA9F4CC31AE0EE330088D177 /* LeyendaNGLeyendaNGs */,
 			);
 		};
 /* End PBXProject section */
@@ -224,10 +240,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9F4CD91AE207E40088D177 /* CollectionViewCell.m in Sources */,
 				DA9F4CB71AE0EE320088D177 /* SecondViewController.m in Sources */,
 				DA9F4CB11AE0EE320088D177 /* AppDelegate.m in Sources */,
 				DA9F4CB41AE0EE320088D177 /* FirstViewController.m in Sources */,
+				DA9F4CD61AE207B20088D177 /* CollectionViewController.m in Sources */,
 				DA9F4CAE1AE0EE320088D177 /* main.m in Sources */,
+				DAE0294D1AE363960083612F /* PageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +263,7 @@
 /* Begin PBXTargetDependency section */
 		DA9F4CC61AE0EE330088D177 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DA9F4CA71AE0EE320088D177 /* Test */;
+			target = DA9F4CA71AE0EE320088D177 /* LeyendaNG */;
 			targetProxy = DA9F4CC51AE0EE330088D177 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -353,9 +372,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LeyendaNG;
 			};
 			name = Debug;
 		};
@@ -363,9 +384,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LeyendaNG;
 			};
 			name = Release;
 		};
@@ -383,8 +406,8 @@
 				);
 				INFOPLIST_FILE = TestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
+				PRODUCT_NAME = LeyendaNGLeyendaNGs;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeyendaNG.app/Test";
 			};
 			name = Debug;
 		};
@@ -398,15 +421,15 @@
 				);
 				INFOPLIST_FILE = TestTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test.app/Test";
+				PRODUCT_NAME = LeyendaNGLeyendaNGs;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LeyendaNG.app/Test";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA9F4CA31AE0EE320088D177 /* Build configuration list for PBXProject "Test" */ = {
+		DA9F4CA31AE0EE320088D177 /* Build configuration list for PBXProject "LeyendaNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9F4CCC1AE0EE330088D177 /* Debug */,
@@ -415,21 +438,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA9F4CCE1AE0EE330088D177 /* Build configuration list for PBXNativeTarget "Test" */ = {
+		DA9F4CCE1AE0EE330088D177 /* Build configuration list for PBXNativeTarget "LeyendaNG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9F4CCF1AE0EE330088D177 /* Debug */,
 				DA9F4CD01AE0EE330088D177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		DA9F4CD11AE0EE330088D177 /* Build configuration list for PBXNativeTarget "TestTests" */ = {
+		DA9F4CD11AE0EE330088D177 /* Build configuration list for PBXNativeTarget "LeyendaNGLeyendaNGs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA9F4CD21AE0EE330088D177 /* Debug */,
 				DA9F4CD31AE0EE330088D177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

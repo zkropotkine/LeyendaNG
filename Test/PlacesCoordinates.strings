@@ -1,0 +1,40 @@
+/*
+ Coordinates.strings
+ Leyenda
+ 
+ Created by Daniel Rodriguez on 5/15/13.
+ Copyright (c) 2013 Daniel Rodriguez. All rights reserved.
+ */
+
+
+"Casa de la CondenadaCoord" = "20.678887,-103.34749";
+"Casa de los PerrosCoord" = "20.680008,-103.347634";
+"9 EsquinasCoord" = "20.670367,-103.348525";
+"AranzazuCoord" = "20.672351,-103.347204";
+"Biblioteca IberoamericanaCoord" = "20.675672,-103.348861";
+"CabañasCoord" = "20.676897,-103.337091";
+"CatedralCoord" = "20.676822,-103.347437";
+"DegolladoCoord" = "20.677077,-103.344988";
+"Exconvento CarmenCoord" = "20.674967,-103.353923";
+"FundadoresCoord" = "20.677004,-103.343815";
+"Juan ManuelCoord" = "20.678887,-103.34749";
+"Museo ArquelogiaCoord" = "20.679934,-103.349894";
+"Museo Lopez PortilloCoord" = "20.679472,-103.346722";
+"Museo RegionalCoord" = "20.677630,-103.346607";
+"Museo del Periodismo" = "20.680008,-103.347634";
+"Palacio MunicipalCoord" = "20.677400,-103.347891";
+"Palacio de Gobierno" = "20.676162,-103.346575";
+"Plaza de ArmasCoord" = "20.676172,-103.347383";
+"Plaza GuadalajaraCoord" = "20.677113,-103.347458";
+"Plaza LiberacionCoord" = "20.677356,-103.346105";
+"Plaza TapatiaCoord"= "20.676353,-103.341342";
+"Prepa JaliscoCoord" = "20.679895,-103.350372";
+"RotondaCoord" = "20.677754,-103.347504";
+"San AgustinCoord" = "20.676662,-103.345009";
+"San FelipeCoord" = "20.679493,-103.351278";
+"San FranciscoCoord" = "20.672155,-103.347210";
+"Santa MonicaCoord" = "20.680013,-103.349110";
+"Santa Maria de GraciaCoord" = "20.677389,-103.344448";
+"Mercado San JuanCoord" = "20.675411,-103.339677";
+"Santa TeresaCoord" = "20.676452,-103.349944";
+"Casa del Rincon del Diablo" = "20.676741,-103.342941";

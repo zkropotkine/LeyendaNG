@@ -10,4 +10,20 @@
 
 @implementation CollectionViewCell
 
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
+
+-(void) awakeFromNib {
+    self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+    
+    self.selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:0.3 alpha:0.5];
+    
+    [super awakeFromNib];
+}
 @end

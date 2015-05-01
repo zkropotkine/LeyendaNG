@@ -46,5 +46,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Se requiere usar el GPS para obtener posicion del usuario.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Se requiere usar el GPS para obtener posicion del usuario.</string>
 </dict>
 </plist>

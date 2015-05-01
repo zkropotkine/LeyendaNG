@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Daniel Rodriguez. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "CollectionDetailVC.h"
 
-@interface FirstViewController ()
+@interface CollectionDetailVC ()
 
 @end
 
-@implementation FirstViewController
+@implementation CollectionDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

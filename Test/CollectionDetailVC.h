@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  CollectionDetailVC
 //  Test
 //
 //  Created by Daniel Rodriguez on 4/17/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface CollectionDetailVC : UIViewController
 
 
 @end

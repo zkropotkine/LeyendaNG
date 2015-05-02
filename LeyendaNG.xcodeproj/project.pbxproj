@@ -11,6 +11,7 @@
 		DA3C6C921AF434F70046BCE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C911AF434F70046BCE0 /* UIKit.framework */; };
 		DA3C6C941AF435010046BCE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C931AF435010046BCE0 /* Foundation.framework */; };
 		DA3C6C961AF4350C0046BCE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C951AF4350C0046BCE0 /* CoreGraphics.framework */; };
+		DA3C6C9D1AF455F20046BCE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3C6C9C1AF455F20046BCE0 /* Localizable.strings */; };
 		DA65E5991AF1EEAA00D0462A /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65E5981AF1EEAA00D0462A /* TabBarController.m */; };
 		DA9F4CAE1AE0EE320088D177 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CAD1AE0EE320088D177 /* main.m */; };
 		DA9F4CB11AE0EE320088D177 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CB01AE0EE320088D177 /* AppDelegate.m */; };
@@ -50,6 +51,7 @@
 		DA3C6C911AF434F70046BCE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA3C6C931AF435010046BCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA3C6C951AF4350C0046BCE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA3C6C9C1AF455F20046BCE0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		DA65E5971AF1EEAA00D0462A /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		DA65E5981AF1EEAA00D0462A /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		DA9F4CA81AE0EE320088D177 /* LeyendaNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeyendaNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +197,7 @@
 				DAB0999C1AEB6F8500ED62D5 /* LegendsCoordinates.strings */,
 				DA9F4CAC1AE0EE320088D177 /* Info.plist */,
 				DA9F4CAD1AE0EE320088D177 /* main.m */,
+				DA3C6C9C1AF455F20046BCE0 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				DA9F4CBF1AE0EE330088D177 /* LaunchScreen.xib in Resources */,
 				DAB099A31AED67A200ED62D5 /* icono57.png in Resources */,
 				DAB0999D1AEB6F8500ED62D5 /* LegendsCoordinates.strings in Resources */,
+				DA3C6C9D1AF455F20046BCE0 /* Localizable.strings in Resources */,
 				DAB0999F1AED65DD00ED62D5 /* icono114.png in Resources */,
 				DAB099A11AED65EB00ED62D5 /* Photos in Resources */,
 				DAB0999B1AEB4E2000ED62D5 /* PlacesCoordinates.strings in Resources */,

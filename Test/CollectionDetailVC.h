@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionDetailVC : UIViewController
+@property (strong, nonatomic) IBOutlet UITextView *detailDescription;
 
 
 @end

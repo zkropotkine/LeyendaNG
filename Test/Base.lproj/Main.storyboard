@@ -4,21 +4,49 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LugarDetail-->
         <scene sceneID="GOq-8o-Hqv">
             <objects>
-                <viewController id="KRY-9p-Mqu" sceneMemberID="viewController">
+                <viewController id="KRY-9p-Mqu" customClass="CollectionDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YNk-WH-RHv"/>
                         <viewControllerLayoutGuide type="bottom" id="2kX-o5-zbA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kgB-wo-82L">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NNg-Ja-PGr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </string>
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="NNg-Ja-PGr" firstAttribute="leading" secondItem="kgB-wo-82L" secondAttribute="leading" id="9sk-NA-IeB"/>
+                            <constraint firstItem="NNg-Ja-PGr" firstAttribute="bottom" secondItem="2kX-o5-zbA" secondAttribute="top" id="BUa-38-VVW"/>
+                            <constraint firstItem="NNg-Ja-PGr" firstAttribute="top" secondItem="YNk-WH-RHv" secondAttribute="bottom" id="dPR-yq-Bg8"/>
+                            <constraint firstAttribute="trailing" secondItem="NNg-Ja-PGr" secondAttribute="trailing" id="wJo-Nk-4lC"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" systemItem="downloads" id="RAS-46-vBi"/>
-                    <navigationItem key="navigationItem" id="7YB-6x-L6z"/>
+                    <navigationItem key="navigationItem" title="LugarDetail" id="7YB-6x-L6z"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="detailDescription" destination="NNg-Ja-PGr" id="uX4-2m-Vg4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqu-gD-XUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +55,7 @@
         <!--View Controller-->
         <scene sceneID="Sru-3m-a4o">
             <objects>
-                <viewController id="4OH-od-8cI" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4OH-od-8cI" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M6v-rf-Ayj"/>
                         <viewControllerLayoutGuide type="bottom" id="XEk-EA-GNO"/>
@@ -42,34 +70,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-a5-697" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="-1538"/>
+            <point key="canvasLocation" x="2059" y="-1440"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="NfE-3e-nC4">
-            <objects>
-                <viewController id="LLL-Nl-JpG" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fs2-a9-6Iv"/>
-                        <viewControllerLayoutGuide type="bottom" id="uVF-Vy-z7f"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Hbp-Zi-1eS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="oZ4-rp-UOa"/>
-                    <navigationItem key="navigationItem" id="BFi-xF-kid"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Uc-zq-bCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2059" y="-847"/>
-        </scene>
-        <!--Tab Bar Controller-->
+        <!--Title-->
         <scene sceneID="tNL-Dc-hX7">
             <objects>
                 <tabBarController id="W4g-9R-M09" customClass="TabBarController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="uYn-qV-OFJ"/>
+                    <navigationItem key="navigationItem" title="Title" id="uYn-qV-OFJ"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="CFW-AN-AYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -77,14 +85,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4OH-od-8cI" kind="relationship" relationship="viewControllers" id="8MF-L7-hEm"/>
+                        <outlet property="tabBarNavigationItem" destination="uYn-qV-OFJ" id="DDt-r4-krJ"/>
                         <segue destination="KRY-9p-Mqu" kind="relationship" relationship="viewControllers" id="S1K-wq-xfj"/>
-                        <segue destination="LLL-Nl-JpG" kind="relationship" relationship="viewControllers" id="h7F-7c-XwA"/>
+                        <segue destination="4OH-od-8cI" kind="relationship" relationship="viewControllers" id="TZ6-ah-nlb"/>
+                        <segue destination="WsM-eS-BAq" kind="relationship" relationship="viewControllers" id="0Yp-f9-lDI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alt-bi-oY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="-1740"/>
+            <point key="canvasLocation" x="1357" y="-1776"/>
         </scene>
         <!--Displaying Pins on a Map View View Controller-->
         <scene sceneID="3jH-dG-bcC">
@@ -104,13 +113,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="PsR-LX-uTE"/>
                     <connections>
                         <outlet property="myMapView" destination="5nI-Gn-iSs" id="rWB-Dr-QWe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndN-He-Abo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-2416"/>
+            <point key="canvasLocation" x="1357" y="-2522"/>
         </scene>
         <!--Leyendas-->
         <scene sceneID="uu3-ah-9tN">
@@ -136,10 +146,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-5I-sLs">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-Zm-DF0">
-                                            <rect key="frame" x="0.0" y="41" width="90" height="21"/>
+                                            <rect key="frame" x="0.0" y="33" width="90" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -160,7 +170,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Leyendas" id="qlq-zc-Oec">
-                        <barButtonItem key="rightBarButtonItem" image="second" id="gyS-pI-Fgr">
+                        <barButtonItem key="rightBarButtonItem" title="Mapa" style="done" id="gyS-pI-Fgr">
                             <connections>
                                 <segue destination="WsM-eS-BAq" kind="show" identifier="legendMapSegue" id="YYO-l4-nvC"/>
                             </connections>
@@ -402,7 +412,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Lugares" id="dQ0-yO-1Wd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="ygx-lE-4tJ">
+                        <barButtonItem key="rightBarButtonItem" title="Mapa" style="done" id="ygx-lE-4tJ">
                             <connections>
                                 <segue destination="Y48-AG-e4f" kind="show" identifier="placesMapSegue" id="r1f-uc-5fR"/>
                             </connections>
@@ -438,7 +448,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="C7p-fF-NzT">
             <objects>
-                <tabBarController id="dJt-pB-2bz" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="dJt-pB-2bz" customClass="TabBarController" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="i45-in-yln"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -497,10 +507,10 @@
             </objects>
             <point key="canvasLocation" x="2233" y="572"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection DetailVC-->
         <scene sceneID="gwx-Sc-o0r">
             <objects>
-                <viewController id="v95-Rz-tpD" sceneMemberID="viewController">
+                <viewController id="v95-Rz-tpD" customClass="CollectionDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4qY-aT-OTq"/>
                         <viewControllerLayoutGuide type="bottom" id="7MI-H2-kXg"/>
@@ -522,4 +532,7 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YYO-l4-nvC"/>
+    </inferredMetricsTieBreakers>
 </document>

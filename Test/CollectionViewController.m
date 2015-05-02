@@ -150,49 +150,51 @@ static NSString * const reuseIdentifier = @"Cell";
     } else if ([segue.identifier isEqualToString:@"legendMapSegue"]) {
         Displaying_Pins_on_a_Map_ViewViewController *destViewController = segue.destinationViewController;
         destViewController.comesFromPlaceSegue = FALSE;
-    } else if ([segue.identifier isEqualToString:@"legendTabSegue"]) {
-        
-        NSIndexPath *selectedIndexPath = sender;
-        
-        NSString *photoName = [self.photosList objectAtIndex:selectedIndexPath.row];
-        
-        NSString *photoNameSimple = [[photoName componentsSeparatedByString:@"."] objectAtIndex:0];
-        
-        NSData *data = [photoNameSimple dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-        NSString *cleanPhotoName = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] stringByReplacingOccurrencesOfString:@"?" withString:@""];
-        NSLog(@"%@", cleanPhotoName);
-        
-        NSMutableString *locationKey = [NSMutableString stringWithString:cleanPhotoName];
-        [locationKey appendString:@"Coord"];
-        
-        NSLog(@"%@", locationKey);
-        
-        NSString *leyendaText = NSLocalizedString(cleanPhotoName, @"");
-        NSString *leyendaLocation = NSLocalizedStringFromTable(locationKey, @"Coordinates", @"");
-        
-        CLLocationCoordinate2D location;
-        
-        if (leyendaLocation != locationKey) {
-            NSString *latitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:0];
-            NSString *longitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:1];
-            
-            NSLog(@"%@",leyendaLocation);
-            NSLog(@"%@",latitude);
-            NSLog(@"%@",longitude);
-            
-            location = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-        } else {
-            location = CLLocationCoordinate2DMake(20.675672, -103.348861);
-        }
-        
-        TabBarController *tabBarController = segue.destinationViewController;
-        tabBarController.model = [[CollectionViewCellModel alloc] initWithDescription:leyendaText title:photoNameSimple location:location];
-    } else if ([segue.identifier isEqualToString:@"placeTabSegue"]) {
-    
+    } else if ([segue.identifier isEqualToString:@"legendTabSegue"] || [segue.identifier isEqualToString:@"placeTabSegue"]) {
+        [self initTabBar:sender segue: segue];
     }
     
     NSLog(@"%@", segue.identifier);
     
+}
+
+
+- (void)initTabBar:(id)sender segue:(UIStoryboardSegue *)segue  {
+    NSIndexPath *selectedIndexPath = sender;
+    
+    NSString *photoName = [self.photosList objectAtIndex:selectedIndexPath.row];
+    
+    NSString *photoNameSimple = [[photoName componentsSeparatedByString:@"."] objectAtIndex:0];
+    
+    NSData *data = [photoNameSimple dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *cleanPhotoName = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] stringByReplacingOccurrencesOfString:@"?" withString:@""];
+    //NSLog(@"%@", cleanPhotoName);
+    
+    NSMutableString *locationKey = [NSMutableString stringWithString:cleanPhotoName];
+    [locationKey appendString:@"Coord"];
+    
+    //NSLog(@"%@", locationKey);
+    
+    NSString *leyendaText = NSLocalizedString(cleanPhotoName, @"");
+    NSString *leyendaLocation = NSLocalizedStringFromTable(locationKey, @"Coordinates", @"");
+    
+    CLLocationCoordinate2D location;
+    
+    if (leyendaLocation != locationKey) {
+        NSString *latitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:0];
+        NSString *longitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:1];
+        
+        NSLog(@"%@",leyendaLocation);
+        NSLog(@"%@",latitude);
+        NSLog(@"%@",longitude);
+        
+        location = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+    } else {
+        location = CLLocationCoordinate2DMake(20.675672, -103.348861);
+    }
+    
+    TabBarController *tabBarController = segue.destinationViewController;
+    tabBarController.model = [[CollectionViewCellModel alloc] initWithDescription:leyendaText title:photoNameSimple location:location];
 }
 
 #pragma mark <UICollectionViewDelegate>

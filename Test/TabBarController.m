@@ -7,10 +7,15 @@
 //
 
 #import "TabBarController.h"
+#import "CollectionDetailVC.h"
+#import "Displaying_Pins_on_a_Map_ViewViewController.h"
 
 @interface TabBarController ()
 
 @end
+static NSInteger const TEXT_DESCRIPTION_VC = 0;
+static NSInteger const PICTURES_VC = 2;
+static NSInteger const MAP_VC = 2;
 
 @implementation TabBarController
 
@@ -26,7 +31,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tabBarNavigationItem.title = self.model.title;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,11 +62,66 @@
 
 - (void)setSelectedViewController:(UIViewController *)selectedViewController
 {
-    [super setSelectedViewController:selectedViewController];
-    NSLog(@"TURURE: %lu", (unsigned long)self.selectedIndex);
+    if ([selectedViewController isKindOfClass:[CollectionDetailVC class]]) {
+        [super setSelectedViewController:selectedViewController];
+        CollectionDetailVC *textDescriptionVC = (CollectionDetailVC *) selectedViewController;
+        //self.tabBarNavigationItem.prompt = @"Leyenda";
+        
+        NSArray* paragraphs = [self.model.textDescription componentsSeparatedByString: @"\n\n"];
+        
+        NSMutableAttributedString *formatedText = [[NSMutableAttributedString alloc] init];
+        
+        for (NSString *paragrahp in paragraphs) {
+            UIColor *_black=[UIColor blackColor];
+            UIFont *font=[UIFont fontWithName:@"Helvetica-Bold" size:20.0f];
+            UIFont *font2=[UIFont fontWithName:@"Helvetica" size:16.0f];
+            
+            NSMutableAttributedString *formatedParagraph=[[NSMutableAttributedString alloc] initWithString:paragrahp];
+            
+            [formatedParagraph addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, 1)];
+            [formatedParagraph addAttribute:NSFontAttributeName value:font2 range:NSMakeRange(1, formatedParagraph.length -1)];
+            [formatedParagraph addAttribute:NSForegroundColorAttributeName value:_black range:NSMakeRange(0, 1)];
+            [formatedParagraph appendAttributedString:[[NSMutableAttributedString alloc] initWithString:@"\n\n"]];
+            
+            [formatedText appendAttributedString:formatedParagraph];
+        }
+        
+        
+        textDescriptionVC.detailDescription.attributedText = formatedText;
+    }
+    else if (![selectedViewController isKindOfClass:[Displaying_Pins_on_a_Map_ViewViewController class]]) {
+        [super setSelectedViewController:selectedViewController];
+    }
+    else if ([selectedViewController isKindOfClass:[Displaying_Pins_on_a_Map_ViewViewController class]]) {
+        Displaying_Pins_on_a_Map_ViewViewController *mapController = (Displaying_Pins_on_a_Map_ViewViewController *) selectedViewController;
+
+        NSLog(@"%f",self.model.location.latitude);
+        NSLog(@"%f",self.model.location.longitude);
+
+        
+        
+        mapController.location = self.model.location;
+        
+        
+        NSLog(@"%f", mapController.location.latitude );
+        NSLog(@"%f", mapController.location.longitude );
+        
+        [selectedViewController.view setNeedsDisplay];
+        [super setSelectedViewController:selectedViewController];
+    }
     
-    NSLog(@"Tittle: %@", self.model.title);
-    NSLog(@"Description: %@", self.model.textDescription);
+    
 }
+
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    NSLog(@"Tq: %lu", (unsigned long)self.selectedIndex);
+
+}
+
+
+
+
 
 @end

@@ -16,12 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        /* Reorganize views, or move child view controllers */
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        /* Do any cleanup, if necessary */
+    }];
+    
+    
+    [self.detailDescription scrollRangeToVisible:NSMakeRange(0, 0)];
 }
 
 @end

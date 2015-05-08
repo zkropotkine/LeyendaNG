@@ -356,7 +356,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="RWZ-LQ-zqL"/>
                     <connections>
                         <outlet property="myMapView" destination="NR4-3x-Cww" id="mgJ-4l-gCe"/>
                     </connections>
@@ -459,14 +458,34 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fCD-QH-5dq" kind="relationship" relationship="viewControllers" id="5GX-bA-2ec"/>
+                        <segue destination="v95-Rz-tpD" kind="relationship" relationship="viewControllers" id="5cy-TY-0aw"/>
                         <segue destination="eF6-bl-jMF" kind="relationship" relationship="viewControllers" id="BEC-TE-257"/>
-                        <segue destination="Y48-AG-e4f" kind="relationship" relationship="viewControllers" id="VeM-nh-Dgt"/>
+                        <segue destination="hmQ-CY-L5o" kind="relationship" relationship="viewControllers" id="dsj-1Z-fKB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UR7-K7-KHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="550"/>
+            <point key="canvasLocation" x="1368" y="556"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mkh-ji-8vK">
+            <objects>
+                <viewController id="hmQ-CY-L5o" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vci-Sf-8Ya"/>
+                        <viewControllerLayoutGuide type="bottom" id="ug0-GG-bGk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LP9-nm-8cv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="2ta-G0-XgR"/>
+                    <navigationItem key="navigationItem" id="6k3-j0-GtN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OEy-NO-0xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2051" y="1279"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="0Hl-Ya-e3s">
@@ -488,53 +507,25 @@
             </objects>
             <point key="canvasLocation" x="2233" y="572"/>
         </scene>
-        <!--LugarDetail-->
-        <scene sceneID="Ghu-do-Wkb">
+        <!--Collection DetailVC-->
+        <scene sceneID="gwx-Sc-o0r">
             <objects>
-                <viewController id="fCD-QH-5dq" customClass="CollectionDetailVC" sceneMemberID="viewController">
+                <viewController id="v95-Rz-tpD" customClass="CollectionDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eZq-Q1-pHe"/>
-                        <viewControllerLayoutGuide type="bottom" id="z0A-cp-h1t"/>
+                        <viewControllerLayoutGuide type="top" id="4qY-aT-OTq"/>
+                        <viewControllerLayoutGuide type="bottom" id="7MI-H2-kXg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ejO-iX-12q">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                    <view key="view" contentMode="scaleToFill" id="qCE-8f-lAW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Yr-F4-Uiz">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </string>
-                                        <attributes>
-                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="1Yr-F4-Uiz" firstAttribute="top" secondItem="eZq-Q1-pHe" secondAttribute="bottom" id="2Oa-JM-eue"/>
-                            <constraint firstItem="1Yr-F4-Uiz" firstAttribute="leading" secondItem="ejO-iX-12q" secondAttribute="leading" id="IQE-Z8-cgy"/>
-                            <constraint firstItem="1Yr-F4-Uiz" firstAttribute="bottom" secondItem="z0A-cp-h1t" secondAttribute="top" id="kUP-xT-6j9"/>
-                            <constraint firstAttribute="trailing" secondItem="1Yr-F4-Uiz" secondAttribute="trailing" id="yjm-Jk-BKn"/>
-                        </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Vhe-ic-hNu"/>
-                    <navigationItem key="navigationItem" title="LugarDetail" id="PmT-Vl-Vxt"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="detailDescription" destination="1Yr-F4-Uiz" id="HuW-45-cdx"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="pX7-6Z-qJ2"/>
+                    <navigationItem key="navigationItem" id="RT9-ja-Ozj"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WFR-MD-vfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="th0-kz-4Qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="-292"/>
+            <point key="canvasLocation" x="2051" y="-137"/>
         </scene>
     </scenes>
     <resources>
@@ -542,7 +533,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Yp-f9-lDI"/>
-        <segue reference="VeM-nh-Dgt"/>
+        <segue reference="YYO-l4-nvC"/>
     </inferredMetricsTieBreakers>
 </document>

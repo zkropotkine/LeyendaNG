@@ -14,10 +14,17 @@
 #import "TabBarController.h"
 
 
+#import "BHAlbumTitleReusableView.h"
+#import "BHPhotoAlbumLayout.h"
+
+static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
+
 @interface CollectionViewController ()
+
     @property (strong, nonatomic) NSArray *photosList;
     @property (strong, nonatomic) NSMutableDictionary *photosCache;
     @property (strong, nonatomic) NSString *photosDir;
+
 @end
 
 @implementation CollectionViewController
@@ -54,7 +61,12 @@ static NSString * const reuseIdentifier = @"Cell";
         });
     });
     
-    NSLog(@"Cosa: %@", self.photosList);
+    
+    
+    [self.collectionView registerClass:[BHAlbumTitleReusableView class]
+            forSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind
+                   withReuseIdentifier:AlbumTitleIdentifier];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -211,6 +223,24 @@ static NSString * const reuseIdentifier = @"Cell";
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath;
+{
+    BHAlbumTitleReusableView *titleView =
+    [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                       withReuseIdentifier:AlbumTitleIdentifier
+                                              forIndexPath:indexPath];
+    
+    NSString *photoName = self.photosList[indexPath.section];
+    
+    titleView.titleLabel.text = photoName;
+    
+    return titleView;
+}
+
+
 
 
 /*

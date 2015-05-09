@@ -13,9 +13,7 @@
 @interface TabBarController ()
 
 @end
-static NSInteger const TEXT_DESCRIPTION_VC = 0;
-static NSInteger const PICTURES_VC = 2;
-static NSInteger const MAP_VC = 2;
+
 
 @implementation TabBarController
 

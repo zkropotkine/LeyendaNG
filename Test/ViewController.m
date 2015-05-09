@@ -93,7 +93,7 @@
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+/*- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *view = nil;
     
@@ -105,6 +105,20 @@
     }
     
     return view;
+}*/
+
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Entro aqui %@", indexPath);
+    [self performSegueWithIdentifier:@"photoDetailSegue" sender:indexPath];
+}
+
+
+-(void) viewDidAppear:(BOOL)animated {
+    //NSLog(@"SI");
+    //self.navigationController.hidesBarsOnTap = false;
+    //[self.tabBarController.tabBar setHidden:NO];
+    //[self.parentViewController.tabBarController.tabBar setHidden:NO];
+    
 }
 
 @end

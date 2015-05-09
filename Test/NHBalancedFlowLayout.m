@@ -17,8 +17,8 @@
 
 @property (nonatomic) CGSize contentSize;
 
-@property (nonatomic, strong) NSArray *headerFrames;
-@property (nonatomic, strong) NSArray *footerFrames;
+//@property (nonatomic, strong) NSArray *headerFrames;
+//@property (nonatomic, strong) NSArray *footerFrames;
 
 @end
 
@@ -95,8 +95,8 @@
         }
     }
     
-    NSMutableArray *headerFrames = [NSMutableArray array];
-    NSMutableArray *footerFrames = [NSMutableArray array];
+    //NSMutableArray *headerFrames = [NSMutableArray array];
+    //NSMutableArray *footerFrames = [NSMutableArray array];
 
     CGSize contentSize = CGSizeZero;
     
@@ -113,48 +113,48 @@
         CGRect *itemFrames = (CGRect *)malloc(sizeof(CGRect) * numberOfItemsInSections);
         _itemFrameSections[section] = itemFrames;
         
-        CGSize headerSize = [self referenceSizeForHeaderInSection:section];
+        //CGSize headerSize = [self referenceSizeForHeaderInSection:section];
         CGSize sectionSize = CGSizeZero;
         
-        CGRect headerFrame;
-        if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-            headerFrame = CGRectMake(0, contentSize.height, CGRectGetWidth(self.collectionView.bounds), headerSize.height);
-        } else {
-            headerFrame = CGRectMake(contentSize.width, 0, headerSize.width, CGRectGetHeight(self.collectionView.bounds));
-        }
-        [headerFrames addObject:[NSValue valueWithCGRect:headerFrame]];
+        //CGRect headerFrame;
+        //if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        //    headerFrame = CGRectMake(0, contentSize.height, CGRectGetWidth(self.collectionView.bounds), headerSize.height);
+        //} else {
+        //    headerFrame = CGRectMake(contentSize.width, 0, headerSize.width, CGRectGetHeight(self.collectionView.bounds));
+        //}
+        //[headerFrames addObject:[NSValue valueWithCGRect:headerFrame]];
         
         CGFloat totalItemSize = [self totalItemSizeForSection:section preferredRowSize:idealHeight];
         NSInteger numberOfRows = MAX(roundf(totalItemSize / [self viewPortAvailableSize]), 1);
     
         CGPoint sectionOffset;
         if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-            sectionOffset = CGPointMake(0, contentSize.height + headerSize.height);
+            sectionOffset = CGPointMake(0, contentSize.height /*+ headerSize.height*/);
         } else {
-            sectionOffset = CGPointMake(contentSize.width + headerSize.width, 0);
+            sectionOffset = CGPointMake(contentSize.width /*+ headerSize.width*/, 0);
         }
         
         [self setFrames:itemFrames forItemsInSection:section numberOfRows:numberOfRows sectionOffset:sectionOffset sectionSize:&sectionSize];
         
-        CGSize footerSize = [self referenceSizeForFooterInSection:section];
-        CGRect footerFrame;
+        //CGSize footerSize = [self referenceSizeForFooterInSection:section];
+        /*CGRect footerFrame;
         if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-            footerFrame = CGRectMake(0, contentSize.height + headerSize.height + sectionSize.height, CGRectGetWidth(self.collectionView.bounds), footerSize.height);
+            footerFrame = CGRectMake(0, contentSize.height + headerSize.height + sectionSize.height, CGRectGetWidth(self.collectionView.bounds), 0 footerSize.height);
         } else {
             footerFrame = CGRectMake(contentSize.width + headerSize.width + sectionSize.width, 0, footerSize.width, CGRectGetHeight(self.collectionView.bounds));
-        }
-        [footerFrames addObject:[NSValue valueWithCGRect:footerFrame]];
+        }*/
+        //[footerFrames addObject:[NSValue valueWithCGRect:footerFrame]];
 
         if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-            contentSize = CGSizeMake(sectionSize.width, contentSize.height + headerSize.height + sectionSize.height + footerSize.height);
+            contentSize = CGSizeMake(sectionSize.width, contentSize.height /*+ headerSize.height*/ + sectionSize.height /*+ footerSize.height*/);
         }
         else {
-            contentSize = CGSizeMake(contentSize.width + headerSize.width + sectionSize.width + footerSize.width, sectionSize.height);
+            contentSize = CGSizeMake(contentSize.width /*+ headerSize.width*/ + sectionSize.width /*+ footerSize.width*/, sectionSize.height);
         }
     }
     
-    self.headerFrames = [headerFrames copy];
-    self.footerFrames = [footerFrames copy];
+    //self.headerFrames = [headerFrames copy];
+    //self.footerFrames = [footerFrames copy];
     
     self.contentSize = contentSize;
 }
@@ -209,11 +209,11 @@
 {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
     
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+    /*if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         attributes.frame = [self headerFrameForSection:indexPath.section];
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         attributes.frame = [self footerFrameForSection:indexPath.section];
-    }
+    }*/
     
     // If there is no header or footer, we need to return nil to prevent a crash from UICollectionView private methods.
     if(CGRectIsEmpty(attributes.frame)) {
@@ -235,20 +235,21 @@
 
 #pragma mark - Layout helpers
 
-- (CGRect)headerFrameForSection:(NSInteger)section
+/*- (CGRect)headerFrameForSection:(NSInteger)section
 {
     return [[self.headerFrames objectAtIndex:section] CGRectValue];
-}
+}*/
 
 - (CGRect)itemFrameForIndexPath:(NSIndexPath *)indexPath
 {
     return _itemFrameSections[indexPath.section][indexPath.item];
 }
 
-- (CGRect)footerFrameForSection:(NSInteger)section
+/*- (CGRect)footerFrameForSection:(NSInteger)section
 {
     return [[self.footerFrames objectAtIndex:section] CGRectValue];
 }
+*/
 
 - (CGFloat)totalItemSizeForSection:(NSInteger)section preferredRowSize:(CGFloat)preferredRowSize
 {

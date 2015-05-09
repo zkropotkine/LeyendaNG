@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LugarDetail-->
@@ -50,12 +51,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqu-gD-XUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="-2241"/>
+            <point key="canvasLocation" x="2367" y="-2399"/>
         </scene>
-        <!--View Controller-->
+        <!--PhotoVC View Controller-->
         <scene sceneID="Sru-3m-a4o">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4OH-od-8cI" sceneMemberID="viewController">
+                <viewController id="4OH-od-8cI" customClass="PhotoVCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M6v-rf-Ayj"/>
                         <viewControllerLayoutGuide type="bottom" id="XEk-EA-GNO"/>
@@ -63,14 +64,30 @@
                     <view key="view" contentMode="scaleToFill" id="ljO-95-XJs">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhr-Oi-abV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                </accessibility>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="XEk-EA-GNO" firstAttribute="top" secondItem="xhr-Oi-abV" secondAttribute="bottom" id="CT0-rX-cs3"/>
+                            <constraint firstItem="xhr-Oi-abV" firstAttribute="top" secondItem="M6v-rf-Ayj" secondAttribute="bottom" id="J4N-6m-5hb"/>
+                            <constraint firstItem="xhr-Oi-abV" firstAttribute="leading" secondItem="ljO-95-XJs" secondAttribute="leadingMargin" constant="-16" id="MZL-vt-o3e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xhr-Oi-abV" secondAttribute="trailing" constant="-16" id="vIT-RI-d6N"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostRecent" id="LnE-Tl-P8S"/>
                     <navigationItem key="navigationItem" id="2cU-wt-ekz"/>
+                    <connections>
+                        <outlet property="photoImage" destination="xhr-Oi-abV" id="poi-yw-X5U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-a5-697" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059" y="-1440"/>
+            <point key="canvasLocation" x="3124" y="-1576"/>
         </scene>
         <!--Title-->
         <scene sceneID="tNL-Dc-hX7">
@@ -87,14 +104,13 @@
                     <connections>
                         <outlet property="tabBarNavigationItem" destination="uYn-qV-OFJ" id="DDt-r4-krJ"/>
                         <segue destination="KRY-9p-Mqu" kind="relationship" relationship="viewControllers" id="S1K-wq-xfj"/>
-                        <segue destination="4OH-od-8cI" kind="relationship" relationship="viewControllers" id="TZ6-ah-nlb"/>
                         <segue destination="WsM-eS-BAq" kind="relationship" relationship="viewControllers" id="0Yp-f9-lDI"/>
                         <segue destination="T4N-Pc-StK" kind="relationship" relationship="viewControllers" id="aOX-3u-cAv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alt-bi-oY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357" y="-1776"/>
+            <point key="canvasLocation" x="1457" y="-1745"/>
         </scene>
         <!--Displaying Pins on a Map View View Controller-->
         <scene sceneID="3jH-dG-bcC">
@@ -146,7 +162,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-5I-sLs">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZHT-5I-sLs">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="4nO-Zm-DF0">
@@ -542,13 +558,13 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="T4N-Pc-StK" customClass="ViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="NbA-4r-Aqx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3Yn-s2-yXL" customClass="NHBalancedFlowLayout">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
-                            <size key="footerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
@@ -577,51 +593,21 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeaderView" id="Qmh-fC-3cO">
-                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Header" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-Ln-byH">
-                                    <rect key="frame" x="480" y="13" width="65" height="24"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.89566532259999998" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="centerX" secondItem="ITe-Ln-byH" secondAttribute="centerX" id="O7Q-N2-acz"/>
-                                <constraint firstAttribute="centerY" secondItem="ITe-Ln-byH" secondAttribute="centerY" id="hgu-Mo-eTS"/>
-                            </constraints>
-                        </collectionReusableView>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FooterView" id="s26-0n-hoZ">
-                            <rect key="frame" x="0.0" y="314" width="600" height="50"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Footer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-dC-TUb">
-                                    <rect key="frame" x="483" y="13" width="58" height="24"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.89566532259999998" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="centerX" secondItem="SRo-dC-TUb" secondAttribute="centerX" id="DPn-Ed-9ZS"/>
-                                <constraint firstAttribute="centerY" secondItem="SRo-dC-TUb" secondAttribute="centerY" id="P2l-dX-f6k"/>
-                            </constraints>
-                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="T4N-Pc-StK" id="Odk-w9-V4O"/>
                             <outlet property="delegate" destination="T4N-Pc-StK" id="Mw1-J7-UUC"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="deV-0Y-le0"/>
                     <navigationItem key="navigationItem" id="1Be-XP-O5F"/>
+                    <connections>
+                        <segue destination="4OH-od-8cI" kind="show" identifier="photoDetailSegue" id="plq-KZ-oiZ"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APv-9Y-xTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344" y="-968"/>
+            <point key="canvasLocation" x="2362" y="-1602"/>
         </scene>
     </scenes>
     <resources>
@@ -629,7 +615,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Yp-f9-lDI"/>
-        <segue reference="VeM-nh-Dgt"/>
+        <segue reference="r1f-uc-5fR"/>
+        <segue reference="YYO-l4-nvC"/>
     </inferredMetricsTieBreakers>
 </document>

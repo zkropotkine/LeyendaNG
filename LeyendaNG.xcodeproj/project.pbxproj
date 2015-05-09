@@ -27,6 +27,14 @@
 		DA1D10D21AFD232300A7A7B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10CD1AFD232300A7A7B5 /* ViewController.m */; };
 		DA1D10D31AFD232300A7A7B5 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10CF1AFD232300A7A7B5 /* ImageCell.m */; };
 		DA1D10D41AFD232300A7A7B5 /* UIImage+Decompression.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10D11AFD232300A7A7B5 /* UIImage+Decompression.m */; };
+		DA1D10D91AFD62EE00A7A7B5 /* PhotoVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10D81AFD62EE00A7A7B5 /* PhotoVCViewController.m */; };
+		DA1D10DC1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10DB1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m */; };
+		DA1D10E01AFDC88D00A7A7B5 /* BHEmblemView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10DF1AFDC88D00A7A7B5 /* BHEmblemView.m */; };
+		DA1D10E51AFDC8E200A7A7B5 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E11AFDC8E200A7A7B5 /* emblem.png */; };
+		DA1D10E61AFDC8E200A7A7B5 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E21AFDC8E200A7A7B5 /* emblem@2x.png */; };
+		DA1D10E71AFDC8E200A7A7B5 /* concrete_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E31AFDC8E200A7A7B5 /* concrete_wall.png */; };
+		DA1D10E81AFDC8E200A7A7B5 /* concrete_wall@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E41AFDC8E200A7A7B5 /* concrete_wall@2X.png */; };
+		DA1D10EB1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */; };
 		DA3C6C901AF40E3F0046BCE0 /* CollectionViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3C6C8F1AF40E3F0046BCE0 /* CollectionViewCellModel.m */; };
 		DA3C6C921AF434F70046BCE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C911AF434F70046BCE0 /* UIKit.framework */; };
 		DA3C6C941AF435010046BCE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C931AF435010046BCE0 /* Foundation.framework */; };
@@ -91,6 +99,18 @@
 		DA1D10CF1AFD232300A7A7B5 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 		DA1D10D01AFD232300A7A7B5 /* UIImage+Decompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Decompression.h"; sourceTree = "<group>"; };
 		DA1D10D11AFD232300A7A7B5 /* UIImage+Decompression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Decompression.m"; sourceTree = "<group>"; };
+		DA1D10D71AFD62EE00A7A7B5 /* PhotoVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoVCViewController.h; sourceTree = "<group>"; };
+		DA1D10D81AFD62EE00A7A7B5 /* PhotoVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoVCViewController.m; sourceTree = "<group>"; };
+		DA1D10DA1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhotoAlbumLayout.h; sourceTree = "<group>"; };
+		DA1D10DB1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhotoAlbumLayout.m; sourceTree = "<group>"; };
+		DA1D10DE1AFDC88D00A7A7B5 /* BHEmblemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHEmblemView.h; sourceTree = "<group>"; };
+		DA1D10DF1AFDC88D00A7A7B5 /* BHEmblemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHEmblemView.m; sourceTree = "<group>"; };
+		DA1D10E11AFDC8E200A7A7B5 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
+		DA1D10E21AFDC8E200A7A7B5 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
+		DA1D10E31AFDC8E200A7A7B5 /* concrete_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = concrete_wall.png; sourceTree = "<group>"; };
+		DA1D10E41AFDC8E200A7A7B5 /* concrete_wall@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concrete_wall@2X.png"; sourceTree = "<group>"; };
+		DA1D10E91AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumTitleReusableView.h; sourceTree = "<group>"; };
+		DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumTitleReusableView.m; sourceTree = "<group>"; };
 		DA3C6C8E1AF40E3F0046BCE0 /* CollectionViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellModel.h; sourceTree = "<group>"; };
 		DA3C6C8F1AF40E3F0046BCE0 /* CollectionViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellModel.m; sourceTree = "<group>"; };
 		DA3C6C911AF434F70046BCE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -167,6 +187,10 @@
 		DA1D10C41AFD1F3000A7A7B5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DA1D10E11AFDC8E200A7A7B5 /* emblem.png */,
+				DA1D10E21AFDC8E200A7A7B5 /* emblem@2x.png */,
+				DA1D10E31AFDC8E200A7A7B5 /* concrete_wall.png */,
+				DA1D10E41AFDC8E200A7A7B5 /* concrete_wall@2X.png */,
 				DA1D10A51AFD1F0600A7A7B5 /* photo-01.png */,
 				DA1D10A61AFD1F0600A7A7B5 /* photo-02.png */,
 				DA1D10A71AFD1F0600A7A7B5 /* photo-03.png */,
@@ -199,8 +223,23 @@
 				DA1D10CF1AFD232300A7A7B5 /* ImageCell.m */,
 				DA1D10D01AFD232300A7A7B5 /* UIImage+Decompression.h */,
 				DA1D10D11AFD232300A7A7B5 /* UIImage+Decompression.m */,
+				DA1D10D71AFD62EE00A7A7B5 /* PhotoVCViewController.h */,
+				DA1D10D81AFD62EE00A7A7B5 /* PhotoVCViewController.m */,
 			);
 			name = ImageLayoutManager;
+			sourceTree = "<group>";
+		};
+		DA1D10DD1AFDC7A000A7A7B5 /* CollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				DA1D10DA1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.h */,
+				DA1D10DB1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m */,
+				DA1D10DE1AFDC88D00A7A7B5 /* BHEmblemView.h */,
+				DA1D10DF1AFDC88D00A7A7B5 /* BHEmblemView.m */,
+				DA1D10E91AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.h */,
+				DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */,
+			);
+			name = CollectionViewLayout;
 			sourceTree = "<group>";
 		};
 		DA3C6C981AF438690046BCE0 /* CollectionView */ = {
@@ -214,6 +253,7 @@
 				DA9F4CD81AE207E40088D177 /* CollectionViewCell.m */,
 				DA3C6C8E1AF40E3F0046BCE0 /* CollectionViewCellModel.h */,
 				DA3C6C8F1AF40E3F0046BCE0 /* CollectionViewCellModel.m */,
+				DA1D10DD1AFDC7A000A7A7B5 /* CollectionViewLayout */,
 			);
 			name = CollectionView;
 			sourceTree = "<group>";
@@ -407,16 +447,20 @@
 			files = (
 				DA1D10C01AFD1F0600A7A7B5 /* photo-13.png in Resources */,
 				DA1D10B71AFD1F0600A7A7B5 /* photo-04.png in Resources */,
+				DA1D10E51AFDC8E200A7A7B5 /* emblem.png in Resources */,
 				DA9F4CBA1AE0EE320088D177 /* Main.storyboard in Resources */,
 				DA9F4CBF1AE0EE330088D177 /* LaunchScreen.xib in Resources */,
 				DAB099A31AED67A200ED62D5 /* icono57.png in Resources */,
 				DA1D10B51AFD1F0600A7A7B5 /* photo-02.png in Resources */,
 				DA1D10BC1AFD1F0600A7A7B5 /* photo-09.png in Resources */,
+				DA1D10E61AFDC8E200A7A7B5 /* emblem@2x.png in Resources */,
 				DA1D10BD1AFD1F0600A7A7B5 /* photo-10.png in Resources */,
 				DA1D10C11AFD1F0600A7A7B5 /* photo-14.png in Resources */,
 				DA1D10B41AFD1F0600A7A7B5 /* photo-01.png in Resources */,
 				DA1D10BF1AFD1F0600A7A7B5 /* photo-12.png in Resources */,
+				DA1D10E71AFDC8E200A7A7B5 /* concrete_wall.png in Resources */,
 				DA1D10BE1AFD1F0600A7A7B5 /* photo-11.png in Resources */,
+				DA1D10E81AFDC8E200A7A7B5 /* concrete_wall@2X.png in Resources */,
 				DA1D10B61AFD1F0600A7A7B5 /* photo-03.png in Resources */,
 				DAB0999D1AEB6F8500ED62D5 /* LegendsCoordinates.strings in Resources */,
 				DA1D10B91AFD1F0600A7A7B5 /* photo-06.png in Resources */,
@@ -454,14 +498,18 @@
 				DA3C6C901AF40E3F0046BCE0 /* CollectionViewCellModel.m in Sources */,
 				DAB099981AEB4DBB00ED62D5 /* MyAnnonation.m in Sources */,
 				DA9F4CB41AE0EE320088D177 /* CollectionDetailVC.m in Sources */,
+				DA1D10EB1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m in Sources */,
 				DA9F4CD61AE207B20088D177 /* CollectionViewController.m in Sources */,
 				DA1D10D41AFD232300A7A7B5 /* UIImage+Decompression.m in Sources */,
 				DA9F4CAE1AE0EE320088D177 /* main.m in Sources */,
 				DA1D10CA1AFD213A00A7A7B5 /* NHLinearPartition.m in Sources */,
 				DA65E5991AF1EEAA00D0462A /* TabBarController.m in Sources */,
 				DAE0294D1AE363960083612F /* PageViewController.m in Sources */,
+				DA1D10DC1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m in Sources */,
+				DA1D10E01AFDC88D00A7A7B5 /* BHEmblemView.m in Sources */,
 				DAB099951AEB4CEE00ED62D5 /* Displaying_Pins_on_a_Map_ViewViewController.m in Sources */,
 				DA1D10C91AFD213A00A7A7B5 /* NHBalancedFlowLayout.m in Sources */,
+				DA1D10D91AFD62EE00A7A7B5 /* PhotoVCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = LeyendaNG;
 			};
@@ -601,7 +649,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Test/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = LeyendaNG;
 			};

@@ -35,6 +35,9 @@
 		DA1D10E71AFDC8E200A7A7B5 /* concrete_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E31AFDC8E200A7A7B5 /* concrete_wall.png */; };
 		DA1D10E81AFDC8E200A7A7B5 /* concrete_wall@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1D10E41AFDC8E200A7A7B5 /* concrete_wall@2X.png */; };
 		DA1D10EB1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */; };
+		DA1D10EE1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10ED1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.m */; };
+		DA1D10F31AFDD1E200A7A7B5 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10F01AFDD1E200A7A7B5 /* BHPhoto.m */; };
+		DA1D10F41AFDD1E200A7A7B5 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1D10F21AFDD1E200A7A7B5 /* BHAlbum.m */; };
 		DA3C6C901AF40E3F0046BCE0 /* CollectionViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3C6C8F1AF40E3F0046BCE0 /* CollectionViewCellModel.m */; };
 		DA3C6C921AF434F70046BCE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C911AF434F70046BCE0 /* UIKit.framework */; };
 		DA3C6C941AF435010046BCE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C931AF435010046BCE0 /* Foundation.framework */; };
@@ -111,6 +114,12 @@
 		DA1D10E41AFDC8E200A7A7B5 /* concrete_wall@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concrete_wall@2X.png"; sourceTree = "<group>"; };
 		DA1D10E91AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumTitleReusableView.h; sourceTree = "<group>"; };
 		DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumTitleReusableView.m; sourceTree = "<group>"; };
+		DA1D10EC1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumPhotoCell.h; sourceTree = "<group>"; };
+		DA1D10ED1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumPhotoCell.m; sourceTree = "<group>"; };
+		DA1D10EF1AFDD1E200A7A7B5 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
+		DA1D10F01AFDD1E200A7A7B5 /* BHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhoto.m; sourceTree = "<group>"; };
+		DA1D10F11AFDD1E200A7A7B5 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
+		DA1D10F21AFDD1E200A7A7B5 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
 		DA3C6C8E1AF40E3F0046BCE0 /* CollectionViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCellModel.h; sourceTree = "<group>"; };
 		DA3C6C8F1AF40E3F0046BCE0 /* CollectionViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCellModel.m; sourceTree = "<group>"; };
 		DA3C6C911AF434F70046BCE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -238,8 +247,22 @@
 				DA1D10DF1AFDC88D00A7A7B5 /* BHEmblemView.m */,
 				DA1D10E91AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.h */,
 				DA1D10EA1AFDCAB600A7A7B5 /* BHAlbumTitleReusableView.m */,
+				DA1D10EC1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.h */,
+				DA1D10ED1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.m */,
+				DA1D10F61AFDD1F200A7A7B5 /* Model */,
 			);
 			name = CollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		DA1D10F61AFDD1F200A7A7B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA1D10EF1AFDD1E200A7A7B5 /* BHPhoto.h */,
+				DA1D10F01AFDD1E200A7A7B5 /* BHPhoto.m */,
+				DA1D10F11AFDD1E200A7A7B5 /* BHAlbum.h */,
+				DA1D10F21AFDD1E200A7A7B5 /* BHAlbum.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		DA3C6C981AF438690046BCE0 /* CollectionView */ = {
@@ -508,8 +531,11 @@
 				DA1D10DC1AFDC76800A7A7B5 /* BHPhotoAlbumLayout.m in Sources */,
 				DA1D10E01AFDC88D00A7A7B5 /* BHEmblemView.m in Sources */,
 				DAB099951AEB4CEE00ED62D5 /* Displaying_Pins_on_a_Map_ViewViewController.m in Sources */,
+				DA1D10F41AFDD1E200A7A7B5 /* BHAlbum.m in Sources */,
+				DA1D10F31AFDD1E200A7A7B5 /* BHPhoto.m in Sources */,
 				DA1D10C91AFD213A00A7A7B5 /* NHBalancedFlowLayout.m in Sources */,
 				DA1D10D91AFD62EE00A7A7B5 /* PhotoVCViewController.m in Sources */,
+				DA1D10EE1AFDCFE300A7A7B5 /* BHAlbumPhotoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,15 +16,22 @@
 
 #import "BHAlbumTitleReusableView.h"
 #import "BHPhotoAlbumLayout.h"
+#import "BHAlbumPhotoCell.h"
+#import "BHAlbum.h"
+#import "BHPhoto.h"
+#import "BHAlbumTitleReusableView.h"
 
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
+static NSString * const PhotoCellIdentifier = @"PhotoCell";
+
 
 @interface CollectionViewController ()
 
     @property (strong, nonatomic) NSArray *photosList;
     @property (strong, nonatomic) NSMutableDictionary *photosCache;
     @property (strong, nonatomic) NSString *photosDir;
-
+    @property (nonatomic, strong) NSMutableArray *albums;
+    @property (nonatomic, strong) NSOperationQueue *thumbnailQueue;
 @end
 
 @implementation CollectionViewController
@@ -38,6 +45,47 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+
+    
+    [super viewDidLoad];
+
+    
+    self.albums = [NSMutableArray array];
+    
+    NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
+    
+    NSInteger photoIndex = 0;
+    
+    for (NSInteger a = 0; a < 12; a++) {
+        BHAlbum *album = [[BHAlbum alloc] init];
+        album.name = [NSString stringWithFormat:@"Photo Album %d",a + 1];
+        
+        NSUInteger photoCount = arc4random()%4 + 2;
+        for (NSInteger p = 0; p < photoCount; p++) {
+            // there are up to 25 photos available to load from the code repository
+            NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
+            NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
+            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+            [album addPhoto:photo];
+            
+            photoIndex++;
+        }
+        
+        [self.albums addObject:album];
+    }
+    
+    
+    [self.collectionView registerClass:[BHAlbumPhotoCell class]
+            forCellWithReuseIdentifier:PhotoCellIdentifier];
+    [self.collectionView registerClass:[BHAlbumTitleReusableView class]
+            forSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind
+                   withReuseIdentifier:AlbumTitleIdentifier];
+    
+    self.thumbnailQueue = [[NSOperationQueue alloc] init];
+    self.thumbnailQueue.maxConcurrentOperationCount = 3;
     
     NSLog(@"Title == %@", self.navigationItem.title);
     NSLog(@"Title == %d", [self.navigationItem.title isEqualToString:@"Leyendas"]);

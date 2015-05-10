@@ -179,6 +179,18 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"WO");
+    
+    [self.myLocationManager stopUpdatingLocation];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [self.myLocationManager startUpdatingLocation];
+}
+
+
 - (IBAction)returnHomePage:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -10,5 +10,5 @@
 
 @interface PhotoVCViewController : UIViewController<UIGestureRecognizerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *photoImage;
-
+@property (strong, nonatomic) NSString *path;
 @end

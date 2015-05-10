@@ -29,6 +29,8 @@
         self.titleLabel.textColor = [UIColor colorWithWhite:1.0f alpha:1.0f];
         self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.3f];
         self.titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        self.titleLabel.minimumScaleFactor = 9.0 / 13.0f;
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
         
         [self addSubview:self.titleLabel];
     }

@@ -38,6 +38,20 @@
     return [[self alloc] initWithImageURL:imageURL];
 }
 
++ (BHPhoto *)photoWithUIImage:(UIImage *)image
+{
+    return [[self alloc] initWithUIImage:image];
+}
+
+- (id)initWithUIImage:(UIImage *)image
+{
+    self = [super init];
+    if (self) {
+        self.image = image;
+    }
+    return self;
+}
+
 - (id)initWithImageURL:(NSURL *)imageURL
 {
     self = [super init];

@@ -15,7 +15,10 @@
 @property (nonatomic, strong, readonly) UIImage *image;
 
 + (BHPhoto *)photoWithImageURL:(NSURL *)imageURL;
++ (BHPhoto *)photoWithUIImage:(UIImage *)image;
+
 
 - (id)initWithImageURL:(NSURL *)imageURL;
+- (id)initWithUIImage:(UIImage *)image;
 
 @end

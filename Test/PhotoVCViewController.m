@@ -7,6 +7,7 @@
 //
 
 #import "PhotoVCViewController.h"
+#import "UIImage+Decompression.h"
 
 @interface PhotoVCViewController ()
 
@@ -17,18 +18,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //SEL selector = NSSelectorFromString(@"tappedImage:");
-    //UIGestureRecognizer *tapGestureRecognizer = [[UIGestureRecognizer alloc] initWithTarget:self action:selector];
-    //[self.photoImage addGestureRecognizer:tapGestureRecognizer];
+    //NSString *photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
     
-    self.navigationController.hidesBarsOnTap = true;
+    //NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:photosDir error:nil];
+    
+    //NSString *photoName = [photosArray objectAtIndex:11];
+    
+    //NSString *photoFilePath = [photosDir stringByAppendingPathComponent:photoName];
+    
+    //NSLog(@"Entro aqui %@", photoFilePath);
+    
+    //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
+    
+   // self.photoImage.image = image;
+    NSLog(@"Esto : %@", self.path);
+    UIImage *image = [UIImage imageNamed:self.path];
+    
+    self.photoImage.image = image;
+    
+   /* self.navigationController.hidesBarsOnTap = true;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImage:)];
     [self.view addGestureRecognizer:tapGesture];
-    
     
     self.photoImage.userInteractionEnabled = YES;
     
     
+    NSLog(@"%@", self.photoImage.description);
+     NSLog(@"%@", self.photoImage.image);
+     NSLog(@"%@", self.photoImage);
+    */
+    /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        UIImage *image = [UIImage decodedImageWithImage:[UIImage imageWithContentsOfFile:@"/Resources/Images/photo-01.png"]];
+
+        //dispatch_async(dispatch_get_main_queue(), ^{
+            self.photoImage.image = image;
+        //});
+    });*/
+                   
+                   
     
 }
 
@@ -38,11 +66,10 @@
 }
 
 
-
--(void) viewDidAppear:(BOOL)animated {
+/*-(void) viewDidAppear:(BOOL)animated {
     self.navigationController.hidesBarsOnSwipe = false;
     self.navigationController.hidesBarsOnTap = true;
-}
+}*/
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -62,8 +89,6 @@
 {
      NSLog(@"KIND");
     
-    
-    
     if (self.navigationController.navigationBarHidden)
     {
         self.navigationController.navigationBarHidden = false;
@@ -81,10 +106,6 @@
     {
         self.tabBarController.tabBar.hidden = true;
     }
-    
-    //self.tabBarController.tabBar.hidden = true;
-    
-    //[self.tabBarController.tabBar setHidden:YES];
 }
 /*
 #pragma mark - Navigation

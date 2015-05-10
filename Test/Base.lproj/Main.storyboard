@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LugarDetail-->
@@ -65,24 +64,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhr-Oi-abV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" button="YES"/>
-                                </accessibility>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17q-NS-V7z">
+                                <rect key="frame" x="0.0" y="-43" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="XEk-EA-GNO" firstAttribute="top" secondItem="xhr-Oi-abV" secondAttribute="bottom" id="CT0-rX-cs3"/>
-                            <constraint firstItem="xhr-Oi-abV" firstAttribute="top" secondItem="M6v-rf-Ayj" secondAttribute="bottom" id="J4N-6m-5hb"/>
-                            <constraint firstItem="xhr-Oi-abV" firstAttribute="leading" secondItem="ljO-95-XJs" secondAttribute="leadingMargin" constant="-16" id="MZL-vt-o3e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xhr-Oi-abV" secondAttribute="trailing" constant="-16" id="vIT-RI-d6N"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2cU-wt-ekz"/>
                     <connections>
-                        <outlet property="photoImage" destination="xhr-Oi-abV" id="poi-yw-X5U"/>
+                        <outlet property="photoImage" destination="17q-NS-V7z" id="EHp-gX-E09"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLv-a5-697" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,14 +138,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OgY-zN-03h">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OgY-zN-03h" customClass="BHPhotoAlbumLayout">
                             <size key="itemSize" width="90" height="60"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="wdU-93-f9H" customClass="CollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="wdU-93-f9H" customClass="BHAlbumPhotoCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -182,7 +172,6 @@
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="8eH-DK-bgC" id="P0y-Wu-f8o"/>
                             <outlet property="delegate" destination="8eH-DK-bgC" id="mlT-DL-HZx"/>
                         </connections>
                     </collectionView>
@@ -194,6 +183,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="photoAlbumLayout" destination="OgY-zN-03h" id="bhg-wu-dtx"/>
                         <segue destination="W4g-9R-M09" kind="show" identifier="legendTabSegue" id="Sfr-TD-sOY"/>
                     </connections>
                 </collectionViewController>

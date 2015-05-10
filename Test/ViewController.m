@@ -11,6 +11,7 @@
 #import "NHLinearPartition.h"
 #import "UIImage+Decompression.h"
 #import "NHBalancedFlowLayout.h"
+#import "PhotoVCViewController.h"
 
 #define NUMBER_OF_IMAGES 15
 
@@ -78,7 +79,7 @@
      * Decompress image on background thread before displaying it to prevent lag
      */
     NSInteger rowIndex = indexPath.row;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
         UIImage *image = [UIImage decodedImageWithImage:[self.images objectAtIndex:indexPath.item]];
         
@@ -108,9 +109,43 @@
 }*/
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Entro aqui %@", indexPath);
+    //NSLog(@"Entro aqui %@", indexPath);
     [self performSegueWithIdentifier:@"photoDetailSegue" sender:indexPath];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"photoDetailSegue"]) {
+        NSIndexPath *selectedIndexPath = sender;
+        //UIImage *image = [self.images objectAtIndex:selectedIndexPath.row];
+        
+        
+        //UIImage *image = [UIImage decodedImageWithImage:[self.images objectAtIndex:selectedIndexPath.row]];
+        
+        
+
+       
+        
+        NSString *photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
+        
+        NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:photosDir error:nil];
+        
+        NSString *photoName = [photosArray objectAtIndex:selectedIndexPath.item];
+        
+        NSString *photoFilePath = [photosDir stringByAppendingPathComponent:photoName];
+        
+        NSLog(@"Entro aqui %@", photoName);
+        
+        //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
+        
+        PhotoVCViewController *destViewController = segue.destinationViewController;
+        destViewController.path = photoFilePath;
+    }
+    NSLog(@"%@", segue.identifier);
+    
+}
+
+
 
 
 -(void) viewDidAppear:(BOOL)animated {

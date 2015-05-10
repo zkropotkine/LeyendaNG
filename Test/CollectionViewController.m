@@ -20,6 +20,7 @@
 #import "BHAlbum.h"
 #import "BHPhoto.h"
 #import "BHAlbumTitleReusableView.h"
+#import "UIImage+Decompression.h"
 
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
@@ -31,6 +32,7 @@ static NSString * const PhotoCellIdentifier = @"PhotoCell";
     @property (strong, nonatomic) NSMutableDictionary *photosCache;
     @property (strong, nonatomic) NSString *photosDir;
     @property (nonatomic, strong) NSMutableArray *albums;
+    @property (weak, nonatomic) IBOutlet BHPhotoAlbumLayout *photoAlbumLayout;
     @property (nonatomic, strong) NSOperationQueue *thumbnailQueue;
 @end
 
@@ -45,30 +47,91 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSInteger photoIndex = 0;
+
+    double currentTime = CACurrentMediaTime();
+    NSLog(@"TIME1 %f", currentTime);
     UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 
+    //NSLog(@"Title == %@", self.navigationItem.title);
+    //NSLog(@"Title == %d", [self.navigationItem.title isEqualToString:@"Leyendas"]);
     
-    [super viewDidLoad];
+    if ([self.navigationItem.title isEqualToString:@"Leyendas"]) {
+        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
+    } else {
+        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Lugares"];
+    }
+    //NSLog(@"%@", self.photosDir);
+    
+    
+    NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.photosDir error:nil];
+    //NSLog(@"%@", photosArray);
+    self.photosCache = [NSMutableDictionary dictionary];
+    self.photosList = nil;
+    //NSLog(@"THIS: %@", self.photosCache);
 
     
     self.albums = [NSMutableArray array];
     
-    NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
+    //NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
     
-    NSInteger photoIndex = 0;
-    
-    for (NSInteger a = 0; a < 12; a++) {
-        BHAlbum *album = [[BHAlbum alloc] init];
-        album.name = [NSString stringWithFormat:@"Photo Album %d",a + 1];
+
+    for (NSInteger a = 0; a < photosArray.count; a++) {
+         NSString *photoName = [photosArray objectAtIndex:a];
         
-        NSUInteger photoCount = arc4random()%4 + 2;
+        BHAlbum *album = [[BHAlbum alloc] init];
+        album.name = photoName;
+        
+        //NSUInteger photoCount = arc4random()%4 + 2;
+        NSUInteger photoCount = 2;
         for (NSInteger p = 0; p < photoCount; p++) {
             // there are up to 25 photos available to load from the code repository
-            NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
-            NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
-            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+            //NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
+            //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
+            //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoName];
+            //BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+            
+            NSString *photoFilePath = [[self photosDir] stringByAppendingPathComponent:photoName];
+            
+            __block UIImage* thumbImage = [self.photosCache objectForKey:photoName];
+            
+            if (p == 0) {
+            
+                if(!thumbImage) {
+                    
+                     //UIImage *image = [UIImage decodedImageWithImage:[UIImage imageWithContentsOfFile:photoFilePath]];
+                    
+                    
+                    
+                    
+                    
+                    UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
+                    
+                    UIGraphicsBeginImageContext(CGSizeMake(128.0f, 128.0f));
+                    
+                    [image drawInRect:CGRectMake(0, 0, 128.0f, 128.0f)];
+                    
+                    thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+                    //thumbImage =image;
+                    UIGraphicsEndImageContext();
+                    
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.photosCache setObject:image forKey:photoName];
+                        });
+                    });
+
+                    
+                     //dispatch_async(dispatch_get_main_queue(), ^{
+                     //   [self.photosCache setObject:image forKey:photoName];
+                     //});
+                   // NSLog(@"THIS: %@", self.photosCache);
+                }
+            }
+            
+            BHPhoto *photo = [BHPhoto photoWithUIImage: thumbImage];
+            
             [album addPhoto:photo];
             
             photoIndex++;
@@ -76,6 +139,9 @@ static NSString * const reuseIdentifier = @"Cell";
         
         [self.albums addObject:album];
     }
+    
+    currentTime = CACurrentMediaTime();
+    NSLog(@"TIME2 %f", currentTime);
     
     
     [self.collectionView registerClass:[BHAlbumPhotoCell class]
@@ -87,34 +153,15 @@ static NSString * const reuseIdentifier = @"Cell";
     self.thumbnailQueue = [[NSOperationQueue alloc] init];
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
     
-    NSLog(@"Title == %@", self.navigationItem.title);
-    NSLog(@"Title == %d", [self.navigationItem.title isEqualToString:@"Leyendas"]);
-    
-    if ([self.navigationItem.title isEqualToString:@"Leyendas"]) {
-        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
-    } else {
-        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Lugares"];
-    }
-    NSLog(@"%@", self.photosDir);
-    
-    
-    NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.photosDir error:nil];
-    NSLog(@"%@", photosArray);
-    self.photosCache = [NSMutableDictionary dictionary];
+
+
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             self.photosList = photosArray;
-            [self.collectionView reloadData];
+            //[self.collectionView reloadData];
         });
     });
-    
-    
-    
-    [self.collectionView registerClass:[BHAlbumTitleReusableView class]
-            forSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind
-                   withReuseIdentifier:AlbumTitleIdentifier];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,7 +170,114 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - View Rotation
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration
+{
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        self.photoAlbumLayout.numberOfColumns = 3;
+        
+        // handle insets for iPhone 4 or 5
+        CGFloat sideInset = [UIScreen mainScreen].preferredMode.size.width == 1136.0f ?
+        45.0f : 25.0f;
+        
+        self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, sideInset, 13.0f, sideInset);
+        
+    } else {
+        self.photoAlbumLayout.numberOfColumns = 2;
+        self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, 22.0f, 13.0f, 22.0f);
+    }
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return self.albums.count;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    BHAlbum *album = self.albums[section];
+    
+    return album.photos.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BHAlbumPhotoCell *photoCell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCellIdentifier forIndexPath:indexPath];
+    
+    BHAlbum *album = self.albums[indexPath.section];
+    BHPhoto *photo = album.photos[indexPath.item];
+    
+    // load photo images in the background
+    __weak CollectionViewController *weakSelf = self;
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        //UIImage *image = [photo image];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            UIImage *image = [UIImage decodedImageWithImage:[photo image]];
+            
+            // then set them via the main queue if the cell is still visible.
+            if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
+                BHAlbumPhotoCell *cell =
+                (BHAlbumPhotoCell *)[weakSelf.collectionView cellForItemAtIndexPath:indexPath];
+                cell.imageView.image = image;
+            }
+        });
+    }];
+    
+    operation.queuePriority = (indexPath.item == 0) ?
+    NSOperationQueuePriorityHigh : NSOperationQueuePriorityNormal;
+    
+    [self.thumbnailQueue addOperation:operation];
+    
+    return photoCell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath;
+{
+    BHAlbumTitleReusableView *titleView =
+    [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                       withReuseIdentifier:AlbumTitleIdentifier
+                                              forIndexPath:indexPath];
+    
+    BHAlbum *album = self.albums[indexPath.section];
+    
+    titleView.titleLabel.text = album.name;
+    
+    return titleView;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -191,7 +345,7 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Frame.png"]];
     
     return cell;
-}
+}*/
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.navigationItem.title isEqualToString:@"Leyendas"]) {
@@ -222,7 +376,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)initTabBar:(id)sender segue:(UIStoryboardSegue *)segue  {
     NSIndexPath *selectedIndexPath = sender;
     
-    NSString *photoName = [self.photosList objectAtIndex:selectedIndexPath.row];
+    NSString *photoName = [self.photosList objectAtIndex:selectedIndexPath.section];
+    
+    NSLog(@"Row: %d", selectedIndexPath.section);
     
     NSString *photoNameSimple = [[photoName componentsSeparatedByString:@"."] objectAtIndex:0];
     
@@ -271,24 +427,6 @@ static NSString * const reuseIdentifier = @"Cell";
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
-           viewForSupplementaryElementOfKind:(NSString *)kind
-                                 atIndexPath:(NSIndexPath *)indexPath;
-{
-    BHAlbumTitleReusableView *titleView =
-    [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                       withReuseIdentifier:AlbumTitleIdentifier
-                                              forIndexPath:indexPath];
-    
-    NSString *photoName = self.photosList[indexPath.section];
-    
-    titleView.titleLabel.text = photoName;
-    
-    return titleView;
-}
-
-
 
 
 /*

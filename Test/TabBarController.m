@@ -9,6 +9,7 @@
 #import "TabBarController.h"
 #import "CollectionDetailVC.h"
 #import "Displaying_Pins_on_a_Map_ViewViewController.h"
+#import "ViewController.h"
 
 @interface TabBarController ()
 
@@ -55,7 +56,6 @@
 - (void)setSelectedIndex:(NSUInteger)selectedIndex
 {
     [super setSelectedIndex:selectedIndex];
-    NSLog(@"TURURq: %lu", (unsigned long)self.selectedIndex);
 }
 
 - (void)setSelectedViewController:(UIViewController *)selectedViewController
@@ -87,23 +87,27 @@
         
         textDescriptionVC.detailDescription.attributedText = formatedText;
     }
-    else if (![selectedViewController isKindOfClass:[Displaying_Pins_on_a_Map_ViewViewController class]]) {
+    else if ([selectedViewController isKindOfClass:[ViewController class]]) {
+        
+        ViewController *galleryController = (ViewController *) selectedViewController;
+        
+            NSLog(@"photoNameSimple %@", self.model.title);
+        
+        
+        galleryController.galleryTitle = [self.model.title copy];
+        galleryController.photosDirectory = self.model.photosDirectory;
+        
+         NSLog(@"photoNameSimple3 %@", galleryController.galleryTitle);
+        NSLog(@"photosDirectory %@", galleryController.photosDirectory);
+        
         [super setSelectedViewController:selectedViewController];
+
+
     }
     else if ([selectedViewController isKindOfClass:[Displaying_Pins_on_a_Map_ViewViewController class]]) {
         Displaying_Pins_on_a_Map_ViewViewController *mapController = (Displaying_Pins_on_a_Map_ViewViewController *) selectedViewController;
-
-        NSLog(@"%f",self.model.location.latitude);
-        NSLog(@"%f",self.model.location.longitude);
-
-        
-        
         mapController.location = self.model.location;
-        
-        
-        NSLog(@"%f", mapController.location.latitude );
-        NSLog(@"%f", mapController.location.longitude );
-        
+
         [selectedViewController.view setNeedsDisplay];
         [super setSelectedViewController:selectedViewController];
     }
@@ -117,9 +121,5 @@
     NSLog(@"Tq: %lu", (unsigned long)self.selectedIndex);
 
 }
-
-
-
-
 
 @end

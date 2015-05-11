@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UICollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
+@property(strong, nonatomic) NSString *galleryTitle;
+@property(strong, nonatomic) NSString *photosDirectory;
 
 @end

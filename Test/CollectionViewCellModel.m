@@ -10,7 +10,7 @@
 
 @implementation CollectionViewCellModel
 
--(id)initWithDescription:(NSString *)descr title:(NSString *)title location:(CLLocationCoordinate2D)location
+-(id)initWithDescription:(NSString *)descr title:(NSString *)title location:(CLLocationCoordinate2D)location photosDirectory: (NSString *) photosDirectory
 {
     self = [super init];
     if (self)
@@ -18,6 +18,7 @@
         self.textDescription = descr;
         self.title = title;
         self.location = location;
+        self.photosDirectory = photosDirectory;
     }
     return self;
 }

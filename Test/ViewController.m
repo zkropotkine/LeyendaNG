@@ -26,17 +26,38 @@
 
 @implementation ViewController
 
+
+-(NSString*) photosDirectory {
+    NSLog(@"======= %@", self.galleryTitle);
+    //return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria"];
+    //NSLog(@"===PATH=== %@", [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria/"] stringByAppendingPathComponent:self.leyendaModel.title]);
+    
+    return [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria/"] stringByAppendingPathComponent:self.galleryTitle];
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+       /* NSMutableArray *images = [[NSMutableArray alloc] init];
+        //for (int i = 1; i <= NUMBER_OF_IMAGES; i++) {
+           // NSString *imageName = [NSString stringWithFormat:@"photo-%02d.png", i];
+           // [images addObject:[UIImage imageNamed:imageName]];
+        //}
         
-        NSMutableArray *images = [[NSMutableArray alloc] init];
-        for (int i = 1; i <= NUMBER_OF_IMAGES; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"photo-%02d.png", i];
+        
+        NSString * fullPhotosDirectory = [NSString stringWithFormat:@"%@/%@", self.photosDirectory, self.galleryTitle];
+        
+        NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:fullPhotosDirectory error:nil];
+        
+        for (int i = 1; i <= photosArray.count; i++) {
+            NSString *imageName = [photosArray objectAtIndex : i];
             [images addObject:[UIImage imageNamed:imageName]];
         }
-        _images = [images copy];
+        
+        NSLog(@"Files: %@", photosArray);
+        
+        _images = [photosArray copy];*/
     }
     
     return self;
@@ -45,6 +66,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSLog(@"Title: %@", self.galleryTitle);
+    NSLog(@"Title2: %@", self.photosDirectory);
+    
+    //NSString * fullPhotosDirectory = [NSString stringWithFormat:@"%@/%@/", self.photosDirectory, self.galleryTitle];
+    
+    NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.photosDirectory error:nil];
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int i = 0; i < photosArray.count; i++) {
+        NSString *imageName = [photosArray objectAtIndex : i];
+        NSString *photoFilePath = [[self photosDirectory] stringByAppendingPathComponent:imageName];
+        UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
+        
+        [images addObject:image];
+    }
+    
+    NSLog(@"Files: %@", photosArray);
+    
+    _images = [photosArray copy];
+    
+     NSLog(@"Files: %@", self.images);
     
     NHBalancedFlowLayout *layout = (NHBalancedFlowLayout *)self.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake(HEADER_SIZE, HEADER_SIZE);
@@ -55,7 +98,16 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(NHBalancedFlowLayout *)collectionViewLayout preferredSizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self.images objectAtIndex:indexPath.item] size];
+    
+    NSLog(@"item: %ld", (long)indexPath.item);
+    NSLog(@"row: %ld", (long)indexPath.row);
+
+    
+    UIImage *image = [self.images objectAtIndex:indexPath.item];
+    
+    NSLog(@"width = %f, height = %f", image.size.width, image.size.height);
+    
+    return [image size];
 }
 
 #pragma mark - UICollectionView data source
@@ -109,7 +161,6 @@
 }*/
 
 -(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //NSLog(@"Entro aqui %@", indexPath);
     [self performSegueWithIdentifier:@"photoDetailSegue" sender:indexPath];
 }
 
@@ -134,15 +185,11 @@
         
         NSString *photoFilePath = [photosDir stringByAppendingPathComponent:photoName];
         
-        NSLog(@"Entro aqui %@", photoName);
-        
         //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
         
         PhotoVCViewController *destViewController = segue.destinationViewController;
         destViewController.path = photoFilePath;
     }
-    NSLog(@"%@", segue.identifier);
-    
 }
 
 

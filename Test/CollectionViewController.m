@@ -108,9 +108,9 @@ static NSString * const reuseIdentifier = @"Cell";
                     
                     UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
                     
-                    UIGraphicsBeginImageContext(CGSizeMake(128.0f, 128.0f));
+                    UIGraphicsBeginImageContext(CGSizeMake(150.0f, 150.0f));
                     
-                    [image drawInRect:CGRectMake(0, 0, 128.0f, 128.0f)];
+                    [image drawInRect:CGRectMake(0, 0, 150.0f, 150.0f)];
                     
                     thumbImage = UIGraphicsGetImageFromCurrentImageContext();
                     //thumbImage =image;
@@ -384,7 +384,6 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSData *data = [photoNameSimple dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *cleanPhotoName = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] stringByReplacingOccurrencesOfString:@"?" withString:@""];
-    //NSLog(@"%@", cleanPhotoName);
     
     NSMutableString *locationKey = [NSMutableString stringWithString:cleanPhotoName];
     [locationKey appendString:@"Coord"];
@@ -400,9 +399,9 @@ static NSString * const reuseIdentifier = @"Cell";
         NSString *latitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:0];
         NSString *longitude = [[leyendaLocation componentsSeparatedByString:@","] objectAtIndex:1];
         
-        NSLog(@"%@",leyendaLocation);
-        NSLog(@"%@",latitude);
-        NSLog(@"%@",longitude);
+       // NSLog(@"%@",leyendaLocation);
+       // NSLog(@"%@",latitude);
+        //NSLog(@"%@",longitude);
         
         location = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
     } else {
@@ -410,7 +409,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     TabBarController *tabBarController = segue.destinationViewController;
-    tabBarController.model = [[CollectionViewCellModel alloc] initWithDescription:leyendaText title:photoNameSimple location:location];
+    tabBarController.model = [[CollectionViewCellModel alloc] initWithDescription:leyendaText title:photoNameSimple location:location photosDirectory:self.photosDir];
 }
 
 #pragma mark <UICollectionViewDelegate>

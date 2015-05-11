@@ -77,17 +77,17 @@
     NSMutableArray *images = [[NSMutableArray alloc] init];
     for (int i = 0; i < photosArray.count; i++) {
         NSString *imageName = [photosArray objectAtIndex : i];
-        NSString *photoFilePath = [[self photosDirectory] stringByAppendingPathComponent:imageName];
-        UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
+        NSString *photoFilePath = [self.photosDirectory stringByAppendingPathComponent:imageName];
+        //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
         
-        [images addObject:image];
+        [images addObject:[UIImage imageNamed:photoFilePath]];
     }
     
-    NSLog(@"Files: %@", photosArray);
+   // NSLog(@"Files: %@", photosArray);
     
-    _images = [photosArray copy];
+    _images = [images copy];
     
-     NSLog(@"Files: %@", self.images);
+     //NSLog(@"Files: %@", self.images);
     
     NHBalancedFlowLayout *layout = (NHBalancedFlowLayout *)self.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake(HEADER_SIZE, HEADER_SIZE);
@@ -99,15 +99,11 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(NHBalancedFlowLayout *)collectionViewLayout preferredSizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSLog(@"item: %ld", (long)indexPath.item);
-    NSLog(@"row: %ld", (long)indexPath.row);
-
     
-    UIImage *image = [self.images objectAtIndex:indexPath.item];
+    UIImage *imager = [self.images objectAtIndex:indexPath.item];
     
-    NSLog(@"width = %f, height = %f", image.size.width, image.size.height);
     
-    return [image size];
+    return [imager size];
 }
 
 #pragma mark - UICollectionView data source
@@ -168,7 +164,7 @@
     
     if ([segue.identifier isEqualToString:@"photoDetailSegue"]) {
         NSIndexPath *selectedIndexPath = sender;
-        //UIImage *image = [self.images objectAtIndex:selectedIndexPath.row];
+        UIImage *image = [self.images objectAtIndex:selectedIndexPath.item];
         
         
         //UIImage *image = [UIImage decodedImageWithImage:[self.images objectAtIndex:selectedIndexPath.row]];
@@ -177,18 +173,20 @@
 
        
         
-        NSString *photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
+        //NSString *photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
         
-        NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:photosDir error:nil];
+        //NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:photosDir error:nil];
         
-        NSString *photoName = [photosArray objectAtIndex:selectedIndexPath.item];
+       // NSString *photoName = [photosArray objectAtIndex:selectedIndexPath.item];
         
-        NSString *photoFilePath = [photosDir stringByAppendingPathComponent:photoName];
+        //NSString *photoFilePath = [photosDir stringByAppendingPathComponent:photoName];
         
         //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
         
         PhotoVCViewController *destViewController = segue.destinationViewController;
-        destViewController.path = photoFilePath;
+        [destViewController configureWithImage:image];
+        
+        NSLog(@"%@", destViewController.photoImage.image);
     }
 }
 

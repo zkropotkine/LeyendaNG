@@ -10,7 +10,7 @@
 #import "UIImage+Decompression.h"
 
 @interface PhotoVCViewController ()
-
+@property (nonatomic, strong) UIImage *capturedImage;
 @end
 
 @implementation PhotoVCViewController
@@ -31,32 +31,31 @@
     //UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
     
    // self.photoImage.image = image;
-    NSLog(@"Esto : %@", self.path);
-    UIImage *image = [UIImage imageNamed:self.path];
+    //NSLog(@"Esto : %@", self.path);
+    //UIImage *image = [UIImage imageNamed:self.path];
     
-    self.photoImage.image = image;
+    //self.photoImage.image = image;
     
-   /* self.navigationController.hidesBarsOnTap = true;
+    self.navigationController.hidesBarsOnTap = true;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedImage:)];
     [self.view addGestureRecognizer:tapGesture];
     
     self.photoImage.userInteractionEnabled = YES;
     
-    
-    NSLog(@"%@", self.photoImage.description);
-     NSLog(@"%@", self.photoImage.image);
-     NSLog(@"%@", self.photoImage);
-    */
-    /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        UIImage *image = [UIImage decodedImageWithImage:[UIImage imageWithContentsOfFile:@"/Resources/Images/photo-01.png"]];
 
-        //dispatch_async(dispatch_get_main_queue(), ^{
-            self.photoImage.image = image;
-        //});
-    });*/
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        //UIImage *image = [UIImage decodedImageWithImage:[UIImage imageWithContentsOfFile:@"/Resources/Images/photo-01.png"]];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //self.photoImage.image = image;
+        
+            self.photoImage.image = self.capturedImage;
+        });
+    });
                    
-                   
+    
     
 }
 
@@ -82,6 +81,11 @@
         self.navigationController.hidesBarsOnTap = false;
         [self.tabBarController.tabBar setHidden:NO];
     }
+}
+
+-(void)configureWithImage:(UIImage *)paramImage
+{
+    self.capturedImage = paramImage;
 }
 
 

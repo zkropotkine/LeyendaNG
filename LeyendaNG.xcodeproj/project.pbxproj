@@ -219,7 +219,7 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		DA1D10CB1AFD214000A7A7B5 /* ImageLayoutManager */ = {
+		DA1D10CB1AFD214000A7A7B5 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
 				DA1D10C51AFD213A00A7A7B5 /* NHBalancedFlowLayout.h */,
@@ -235,7 +235,7 @@
 				DA1D10D71AFD62EE00A7A7B5 /* PhotoVCViewController.h */,
 				DA1D10D81AFD62EE00A7A7B5 /* PhotoVCViewController.m */,
 			);
-			name = ImageLayoutManager;
+			name = ImageGallery;
 			sourceTree = "<group>";
 		};
 		DA1D10DD1AFDC7A000A7A7B5 /* CollectionViewLayout */ = {
@@ -302,6 +302,15 @@
 			name = Iconos;
 			sourceTree = "<group>";
 		};
+		DA5567551B00578B005792F2 /* ItemDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DA65E5971AF1EEAA00D0462A /* TabBarController.h */,
+				DA65E5981AF1EEAA00D0462A /* TabBarController.m */,
+			);
+			name = ItemDetails;
+			sourceTree = "<group>";
+		};
 		DA9F4C9F1AE0EE320088D177 = {
 			isa = PBXGroup;
 			children = (
@@ -335,9 +344,8 @@
 				DA9F4CB61AE0EE320088D177 /* SecondViewController.m */,
 				DAE0294B1AE363960083612F /* PageViewController.h */,
 				DAE0294C1AE363960083612F /* PageViewController.m */,
-				DA65E5971AF1EEAA00D0462A /* TabBarController.h */,
-				DA65E5981AF1EEAA00D0462A /* TabBarController.m */,
-				DA1D10CB1AFD214000A7A7B5 /* ImageLayoutManager */,
+				DA5567551B00578B005792F2 /* ItemDetails */,
+				DA1D10CB1AFD214000A7A7B5 /* ImageGallery */,
 				DA3C6C981AF438690046BCE0 /* CollectionView */,
 				DAB099991AEB4DC300ED62D5 /* Maps */,
 				DA9F4CBB1AE0EE320088D177 /* Images.xcassets */,

@@ -87,11 +87,17 @@
     
     CGFloat idealHeight = self.preferredRowSize;
     if (idealHeight == 0) {
-        if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-            idealHeight = CGRectGetHeight(self.collectionView.bounds) / 3.0;
+        
+        
+        
+        if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+            idealHeight = CGRectGetWidth(self.collectionView.bounds) / 3.0;
+            self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         }
         else {
-            idealHeight = CGRectGetWidth(self.collectionView.bounds) / 3.0;
+            //idealHeight = CGRectGetWidth(self.collectionView.bounds) / 3.0;
+            idealHeight = CGRectGetHeight(self.collectionView.bounds) / 3.0;
+            self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         }
     }
     
@@ -450,6 +456,5 @@
     }
     return self.footerReferenceSize;
 }
-
 
 @end

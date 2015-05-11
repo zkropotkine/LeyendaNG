@@ -131,4 +131,18 @@
     }
 }
 
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                duration:(NSTimeInterval)duration
+{
+    NHBalancedFlowLayout *flowLayout = (id) (NHBalancedFlowLayout *)self.collectionViewLayout;
+    [flowLayout invalidateLayout];
+}
+
+- (void)viewWillLayoutSubviews;
+{
+    
+    
+}
+
 @end

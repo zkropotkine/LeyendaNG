@@ -612,7 +612,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0Yp-f9-lDI"/>
         <segue reference="r1f-uc-5fR"/>
-        <segue reference="YYO-l4-nvC"/>
     </inferredMetricsTieBreakers>
 </document>

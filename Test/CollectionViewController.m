@@ -58,9 +58,9 @@ static NSString * const reuseIdentifier = @"Cell";
     //NSLog(@"Title == %d", [self.navigationItem.title isEqualToString:@"Leyendas"]);
     
     if ([self.navigationItem.title isEqualToString:@"Leyendas"]) {
-        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas"];
+        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Leyendas/Small"];
     } else {
-        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Lugares"];
+        self.photosDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Lugares/Small"];
     }
     //NSLog(@"%@", self.photosDir);
     
@@ -84,7 +84,7 @@ static NSString * const reuseIdentifier = @"Cell";
         album.name = photoName;
         
         //NSUInteger photoCount = arc4random()%4 + 2;
-        NSUInteger photoCount = 2;
+        NSUInteger photoCount = 3;
         for (NSInteger p = 0; p < photoCount; p++) {
             // there are up to 25 photos available to load from the code repository
             //NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
@@ -185,6 +185,24 @@ static NSString * const reuseIdentifier = @"Cell";
         self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, sideInset, 13.0f, sideInset);
         
     } else {
+        self.photoAlbumLayout.numberOfColumns = 2;
+        self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, 22.0f, 13.0f, 22.0f);
+    }
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    {
+        self.photoAlbumLayout.numberOfColumns = 3;
+        
+        // handle insets for iPhone 4 or 5
+        CGFloat sideInset = [UIScreen mainScreen].preferredMode.size.width == 1136.0f ?
+        45.0f : 25.0f;
+        
+        self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, sideInset, 13.0f, sideInset);
+    }
+    else
+    {
         self.photoAlbumLayout.numberOfColumns = 2;
         self.photoAlbumLayout.itemInsets = UIEdgeInsetsMake(22.0f, 22.0f, 13.0f, 22.0f);
     }

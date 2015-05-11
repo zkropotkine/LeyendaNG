@@ -183,11 +183,11 @@
     [super viewWillDisappear:animated];
     NSLog(@"WO");
     
-    [self.myLocationManager stopUpdatingLocation];
+    //[self.myLocationManager stopUpdatingLocation];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    [self.myLocationManager startUpdatingLocation];
+    //[self.myLocationManager startUpdatingLocation];
 }
 
 

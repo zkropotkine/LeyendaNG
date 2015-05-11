@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LugarDetail-->
@@ -64,11 +65,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17q-NS-V7z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="17q-NS-V7z">
                                 <rect key="frame" x="0.0" y="-43" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="17q-NS-V7z" firstAttribute="leading" secondItem="ljO-95-XJs" secondAttribute="leadingMargin" constant="-16" id="Dbn-oS-IEx"/>
+                            <constraint firstItem="17q-NS-V7z" firstAttribute="top" secondItem="ljO-95-XJs" secondAttribute="topMargin" constant="-43" id="a2N-Ii-AlU"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="17q-NS-V7z" secondAttribute="bottom" constant="43" id="dbn-nz-qQW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="17q-NS-V7z" secondAttribute="trailing" constant="-16" id="yxe-gn-Gdc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2cU-wt-ekz"/>
                     <connections>

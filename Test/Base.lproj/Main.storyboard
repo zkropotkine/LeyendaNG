@@ -76,7 +76,14 @@
                             <constraint firstAttribute="bottom" secondItem="17q-NS-V7z" secondAttribute="bottom" id="yic-Ya-0kp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2cU-wt-ekz"/>
+                    <navigationItem key="navigationItem" id="2cU-wt-ekz">
+                        <barButtonItem key="backBarButtonItem" title="Atras" id="JEj-YP-LNw"/>
+                        <barButtonItem key="rightBarButtonItem" image="collapse-32.png" id="9Ar-7d-2by">
+                            <connections>
+                                <action selector="resetImage:" destination="4OH-od-8cI" id="EWx-kF-dxG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoImage" destination="17q-NS-V7z" id="EHp-gX-E09"/>
                     </connections>
@@ -182,7 +189,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Leyendas" id="qlq-zc-Oec">
-                        <barButtonItem key="rightBarButtonItem" title="Mapa" style="done" id="gyS-pI-Fgr">
+                        <barButtonItem key="rightBarButtonItem" image="map_marker-32.png" style="done" id="gyS-pI-Fgr">
                             <connections>
                                 <segue destination="WsM-eS-BAq" kind="show" identifier="legendMapSegue" id="YYO-l4-nvC"/>
                             </connections>
@@ -316,8 +323,9 @@
         <scene sceneID="Wj3-t6-92F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dyR-ee-07p" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Leyendas" image="first" id="Ayx-xz-fKq"/>
+                    <tabBarItem key="tabBarItem" title="Leyendas" image="literature-32.png" id="Ayx-xz-fKq"/>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCa-xj-hhl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -335,7 +343,7 @@
         <scene sceneID="x2t-0H-a1a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gaw-Tf-TEb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Info" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="info-32.png" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UAc-a0-736">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -426,7 +434,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Lugares" id="dQ0-yO-1Wd">
-                        <barButtonItem key="rightBarButtonItem" title="Mapa" style="done" id="ygx-lE-4tJ">
+                        <barButtonItem key="rightBarButtonItem" image="geo_fence-32.png" style="done" id="ygx-lE-4tJ">
                             <connections>
                                 <segue destination="Y48-AG-e4f" kind="show" identifier="placesMapSegue" id="r1f-uc-5fR"/>
                             </connections>
@@ -444,7 +452,7 @@
         <scene sceneID="jZN-lI-ANd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2v-zh-teT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lugares" image="first" id="jKl-Xw-d8o"/>
+                    <tabBarItem key="tabBarItem" title="Lugares" image="treasury_map-32.png" id="jKl-Xw-d8o"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KpY-bo-s0l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -611,7 +619,13 @@
                             <constraint firstAttribute="bottom" secondItem="Zhb-fT-1O7" secondAttribute="bottom" id="rKs-k4-pAv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ARZ-17-DfW"/>
+                    <navigationItem key="navigationItem" id="ARZ-17-DfW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="n7n-jX-IEW">
+                            <connections>
+                                <action selector="resetImage:" destination="IDG-w6-bVs" id="y0A-c3-wBR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoImage" destination="Zhb-fT-1O7" id="RbG-C1-0oO"/>
                     </connections>
@@ -678,11 +692,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="collapse-32.png" width="32" height="32"/>
+        <image name="geo_fence-32.png" width="32" height="32"/>
+        <image name="info-32.png" width="32" height="32"/>
+        <image name="literature-32.png" width="32" height="32"/>
+        <image name="map_marker-32.png" width="32" height="32"/>
+        <image name="treasury_map-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VeM-nh-Dgt"/>
-        <segue reference="0Yp-f9-lDI"/>
+        <segue reference="r1f-uc-5fR"/>
+        <segue reference="YYO-l4-nvC"/>
     </inferredMetricsTieBreakers>
 </document>

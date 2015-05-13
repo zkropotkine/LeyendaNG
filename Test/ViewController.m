@@ -34,6 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
+    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
     double currentTime = CACurrentMediaTime();
     NSLog(@"TIME1 %f", currentTime);
 

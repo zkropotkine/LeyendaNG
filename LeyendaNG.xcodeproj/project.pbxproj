@@ -28,6 +28,14 @@
 		DA3C6C941AF435010046BCE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C931AF435010046BCE0 /* Foundation.framework */; };
 		DA3C6C961AF4350C0046BCE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3C6C951AF4350C0046BCE0 /* CoreGraphics.framework */; };
 		DA3C6C9D1AF455F20046BCE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA3C6C9C1AF455F20046BCE0 /* Localizable.strings */; };
+		DA3D68F31B0323290020FAC6 /* literature-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68F21B0323290020FAC6 /* literature-32.png */; };
+		DA3D68F71B0324050020FAC6 /* big_ben-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68F61B0324050020FAC6 /* big_ben-32.png */; };
+		DA3D68F91B0324900020FAC6 /* info-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68F81B0324900020FAC6 /* info-32.png */; };
+		DA3D68FB1B03252B0020FAC6 /* treasury_map-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68FA1B03252B0020FAC6 /* treasury_map-32.png */; };
+		DA3D68FD1B03256C0020FAC6 /* treasury_map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68FC1B03256C0020FAC6 /* treasury_map-25.png */; };
+		DA3D68FF1B032BDD0020FAC6 /* geo_fence-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D68FE1B032BDD0020FAC6 /* geo_fence-32.png */; };
+		DA3D69011B032CBA0020FAC6 /* map_marker-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D69001B032CBA0020FAC6 /* map_marker-32.png */; };
+		DA3D69031B0335610020FAC6 /* collapse-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DA3D69021B0335610020FAC6 /* collapse-32.png */; };
 		DA65E5991AF1EEAA00D0462A /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA65E5981AF1EEAA00D0462A /* TabBarController.m */; };
 		DA9F4CAE1AE0EE320088D177 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CAD1AE0EE320088D177 /* main.m */; };
 		DA9F4CB11AE0EE320088D177 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9F4CB01AE0EE320088D177 /* AppDelegate.m */; };
@@ -95,6 +103,14 @@
 		DA3C6C931AF435010046BCE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DA3C6C951AF4350C0046BCE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DA3C6C9C1AF455F20046BCE0 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DA3D68F21B0323290020FAC6 /* literature-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "literature-32.png"; path = "Resources/Images/literature-32.png"; sourceTree = "<group>"; };
+		DA3D68F61B0324050020FAC6 /* big_ben-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "big_ben-32.png"; path = "Resources/Images/big_ben-32.png"; sourceTree = "<group>"; };
+		DA3D68F81B0324900020FAC6 /* info-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "info-32.png"; path = "Resources/Images/info-32.png"; sourceTree = "<group>"; };
+		DA3D68FA1B03252B0020FAC6 /* treasury_map-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "treasury_map-32.png"; path = "Resources/Images/treasury_map-32.png"; sourceTree = "<group>"; };
+		DA3D68FC1B03256C0020FAC6 /* treasury_map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "treasury_map-25.png"; path = "Resources/Images/treasury_map-25.png"; sourceTree = "<group>"; };
+		DA3D68FE1B032BDD0020FAC6 /* geo_fence-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "geo_fence-32.png"; path = "Resources/Images/geo_fence-32.png"; sourceTree = "<group>"; };
+		DA3D69001B032CBA0020FAC6 /* map_marker-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map_marker-32.png"; path = "Resources/Images/map_marker-32.png"; sourceTree = "<group>"; };
+		DA3D69021B0335610020FAC6 /* collapse-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "collapse-32.png"; path = "Resources/Images/collapse-32.png"; sourceTree = "<group>"; };
 		DA65E5971AF1EEAA00D0462A /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		DA65E5981AF1EEAA00D0462A /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		DA9F4CA81AE0EE320088D177 /* LeyendaNG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeyendaNG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +179,14 @@
 		DA1D10C41AFD1F3000A7A7B5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DA3D69001B032CBA0020FAC6 /* map_marker-32.png */,
+				DA3D68FE1B032BDD0020FAC6 /* geo_fence-32.png */,
+				DA3D69021B0335610020FAC6 /* collapse-32.png */,
+				DA3D68F81B0324900020FAC6 /* info-32.png */,
+				DA3D68FA1B03252B0020FAC6 /* treasury_map-32.png */,
+				DA3D68FC1B03256C0020FAC6 /* treasury_map-25.png */,
+				DA3D68F21B0323290020FAC6 /* literature-32.png */,
+				DA3D68F61B0324050020FAC6 /* big_ben-32.png */,
 				DA1D10E11AFDC8E200A7A7B5 /* emblem.png */,
 				DA1D10E21AFDC8E200A7A7B5 /* emblem@2x.png */,
 				DA1D10E31AFDC8E200A7A7B5 /* concrete_wall.png */,
@@ -426,19 +450,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3D68FF1B032BDD0020FAC6 /* geo_fence-32.png in Resources */,
 				DA1D10E51AFDC8E200A7A7B5 /* emblem.png in Resources */,
 				DA9F4CBA1AE0EE320088D177 /* Main.storyboard in Resources */,
+				DA3D68FB1B03252B0020FAC6 /* treasury_map-32.png in Resources */,
 				DA9F4CBF1AE0EE330088D177 /* LaunchScreen.xib in Resources */,
+				DA3D69011B032CBA0020FAC6 /* map_marker-32.png in Resources */,
 				DAB099A31AED67A200ED62D5 /* icono57.png in Resources */,
+				DA3D68F31B0323290020FAC6 /* literature-32.png in Resources */,
 				DAB0999F1AED65DD00ED62D5 /* icono114.png in Resources */,
 				DA1D10E61AFDC8E200A7A7B5 /* emblem@2x.png in Resources */,
 				DA1D10E71AFDC8E200A7A7B5 /* concrete_wall.png in Resources */,
 				DA1D10E81AFDC8E200A7A7B5 /* concrete_wall@2X.png in Resources */,
+				DA3D68FD1B03256C0020FAC6 /* treasury_map-25.png in Resources */,
 				DAB0999D1AEB6F8500ED62D5 /* LegendsCoordinates.strings in Resources */,
+				DA3D69031B0335610020FAC6 /* collapse-32.png in Resources */,
 				DAB0999B1AEB4E2000ED62D5 /* PlacesCoordinates.strings in Resources */,
 				DA3C6C9D1AF455F20046BCE0 /* Localizable.strings in Resources */,
+				DA3D68F91B0324900020FAC6 /* info-32.png in Resources */,
 				DAFFC4731AFC986C0056728F /* Photos in Resources */,
 				DA9F4CBC1AE0EE320088D177 /* Images.xcassets in Resources */,
+				DA3D68F71B0324050020FAC6 /* big_ben-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

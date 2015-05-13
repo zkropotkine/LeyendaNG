@@ -21,41 +21,53 @@
 @interface ViewController () <NHBalancedFlowLayoutDelegate>
 
 @property (nonatomic, strong) NSArray *images;
-
+    @property (nonatomic, strong) NSOperationQueue *thumbnailQueue;
 @end
 
 @implementation ViewController
 
 
 -(NSString*) photosDirectory {
-    NSLog(@"======= %@", self.galleryTitle);
-    //return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria"];
-    //NSLog(@"===PATH=== %@", [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria/"] stringByAppendingPathComponent:self.leyendaModel.title]);
-    
     return [[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Photos/Galeria/"] stringByAppendingPathComponent:self.galleryTitle];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    double currentTime = CACurrentMediaTime();
+    NSLog(@"TIME1 %f", currentTime);
+
     
+
     NSArray * photosArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.photosDirectory error:nil];
     NSMutableArray *images = [[NSMutableArray alloc] init];
+    NSString * dir = self.photosDirectory;
+    
     
     for (int i = 0; i < photosArray.count; i++)
     {
         NSString *imageName = [photosArray objectAtIndex : i];
-        NSString *photoFilePath = [self.photosDirectory stringByAppendingPathComponent:imageName];
+        NSString *photoFilePath = [dir stringByAppendingPathComponent:imageName];
 
         [images addObject:[UIImage imageNamed:photoFilePath]];
     }
+
+    currentTime = CACurrentMediaTime();
+    NSLog(@"TIME2 %f", currentTime);
     
-    _images = [images copy];
+    _images = images;
+    
+    
+    currentTime = CACurrentMediaTime();
+    NSLog(@"TIME3 %f", currentTime);
     
     // TODO: Eliminate these, check if we can do so first.
     NHBalancedFlowLayout *layout = (NHBalancedFlowLayout *)self.collectionViewLayout;
     layout.headerReferenceSize = CGSizeMake(HEADER_SIZE, HEADER_SIZE);
     layout.footerReferenceSize = CGSizeMake(FOOTER_SIZE, FOOTER_SIZE);
+    
+    self.thumbnailQueue = [[NSOperationQueue alloc] init];
+    self.thumbnailQueue.maxConcurrentOperationCount = 5;
 }
 
 #pragma mark - UICollectionViewFlowLayoutDelegate
@@ -79,24 +91,33 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
+
     ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
     cell.imageView.image = nil;
-
-    /**
-     * Decompress image on background thread before displaying it to prevent lag
-     */
-    NSInteger rowIndex = indexPath.row;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        
-        UIImage *image = [UIImage decodedImageWithImage:[self.images objectAtIndex:indexPath.item]];
+    
+    // load photo images in the background
+    __weak ViewController *weakSelf = self;
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        //UIImage *image = [photo image];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIImage *image = [self.images objectAtIndex:indexPath.item];
+            
             NSIndexPath *currentIndexPathForCell = [collectionView indexPathForCell:cell];
-            if (currentIndexPathForCell.row == rowIndex) {
+            
+            if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:currentIndexPathForCell]) {
                 cell.imageView.image = image;
             }
         });
-    });
+    }];
+    
+    
+    operation.queuePriority = (indexPath.item == 0) ?
+    NSOperationQueuePriorityHigh : NSOperationQueuePriorityNormal;
+    
+    [self.thumbnailQueue addOperation:operation];
+    
     
     return cell;
 }

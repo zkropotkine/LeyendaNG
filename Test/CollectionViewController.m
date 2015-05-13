@@ -77,56 +77,57 @@ static NSString * const reuseIdentifier = @"Cell";
     //NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
     
 
-    for (NSInteger a = 0; a < photosArray.count; a++) {
+    for (NSInteger a = 0; a < photosArray.count; a++)
+    {
          NSString *photoName = [photosArray objectAtIndex:a];
+         NSString *photoNameSimple = [[photoName componentsSeparatedByString:@"."] objectAtIndex:0];
         
-        BHAlbum *album = [[BHAlbum alloc] init];
-        album.name = photoName;
+         BHAlbum *album = [[BHAlbum alloc] init];
+         album.name = photoNameSimple;
         
-        //NSUInteger photoCount = arc4random()%4 + 2;
-        NSUInteger photoCount = 3;
-        for (NSInteger p = 0; p < photoCount; p++) {
-            // there are up to 25 photos available to load from the code repository
-            //NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
-            //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
-            //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoName];
-            //BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+         //NSUInteger photoCount = arc4random()%4 + 2;
+         NSUInteger photoCount = 3;
+         for (NSInteger p = 0; p < photoCount; p++)
+         {
+             // there are up to 25 photos available to load from the code repository
+             //NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
+             //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
+             //NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoName];
+             //BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
             
-            NSString *photoFilePath = [[self photosDir] stringByAppendingPathComponent:photoName];
+             NSString *photoFilePath = [[self photosDir] stringByAppendingPathComponent:photoName];
             
-            __block UIImage* thumbImage = [self.photosCache objectForKey:photoName];
+             __block UIImage* thumbImage = [self.photosCache objectForKey:photoName];
             
-            if (p == 0) {
+             if (p == 0)
+             {
             
-                if(!thumbImage) {
+                 if(!thumbImage)
+                 {
                     
                      //UIImage *image = [UIImage decodedImageWithImage:[UIImage imageWithContentsOfFile:photoFilePath]];
                     
+                     UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
                     
+                     UIGraphicsBeginImageContext(CGSizeMake(150.0f, 150.0f));
                     
+                     [image drawInRect:CGRectMake(0, 0, 150.0f, 150.0f)];
                     
-                    
-                    UIImage *image = [UIImage imageWithContentsOfFile:photoFilePath];
-                    
-                    UIGraphicsBeginImageContext(CGSizeMake(150.0f, 150.0f));
-                    
-                    [image drawInRect:CGRectMake(0, 0, 150.0f, 150.0f)];
-                    
-                    thumbImage = UIGraphicsGetImageFromCurrentImageContext();
+                     thumbImage = UIGraphicsGetImageFromCurrentImageContext();
                     //thumbImage =image;
-                    UIGraphicsEndImageContext();
+                     UIGraphicsEndImageContext();
                     
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.photosCache setObject:image forKey:photoName];
-                        });
-                    });
+                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                         [self.photosCache setObject:image forKey:photoName];
+                         });
+                     });
 
                     
                      //dispatch_async(dispatch_get_main_queue(), ^{
                      //   [self.photosCache setObject:image forKey:photoName];
                      //});
-                   // NSLog(@"THIS: %@", self.photosCache);
+                     // NSLog(@"THIS: %@", self.photosCache);
                 }
             }
             
@@ -153,8 +154,6 @@ static NSString * const reuseIdentifier = @"Cell";
     self.thumbnailQueue = [[NSOperationQueue alloc] init];
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
     
-
-
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{

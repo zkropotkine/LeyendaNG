@@ -97,7 +97,7 @@
         else {
             //idealHeight = CGRectGetWidth(self.collectionView.bounds) / 3.0;
             idealHeight = CGRectGetHeight(self.collectionView.bounds) / 3.0;
-            self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+            self.scrollDirection = UICollectionViewScrollDirectionVertical;
         }
     }
     

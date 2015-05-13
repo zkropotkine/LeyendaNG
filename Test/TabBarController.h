@@ -12,4 +12,5 @@
 @interface TabBarController : UITabBarController <UITabBarControllerDelegate>
 @property (strong, nonatomic) CollectionViewCellModel *model;
 @property (strong, nonatomic) IBOutlet UINavigationItem *tabBarNavigationItem;
+@property (strong, nonatomic, readonly) UISegmentedControl *segmentedControl;
 @end

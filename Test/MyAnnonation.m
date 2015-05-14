@@ -21,4 +21,17 @@
     
     return(self);
 }
+
+
+-(id) initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates title:(NSString *)paramTitle {
+    self = [super init];
+    
+    if (self != nil) {
+        _coordinate = paramCoordinates;
+        _title = paramTitle;
+    }
+    
+    return(self);
+}
+
 @end

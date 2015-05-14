@@ -101,6 +101,7 @@
     {
         Displaying_Pins_on_a_Map_ViewViewController *mapController = (Displaying_Pins_on_a_Map_ViewViewController *) selectedViewController;
         mapController.location = self.model.location;
+        mapController.markTitle = self.model.title;
 
         [selectedViewController.view setNeedsDisplay];
         [super setSelectedViewController:selectedViewController];

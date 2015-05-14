@@ -16,4 +16,5 @@
 @property (strong, nonatomic) CLLocationManager *myLocationManager;
 @property(assign, nonatomic) CLLocationCoordinate2D location;
 @property (nonatomic, assign) BOOL comesFromPlaceSegue;
+@property (nonatomic, assign) NSString* markTitle;
 @end

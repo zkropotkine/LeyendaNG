@@ -19,4 +19,6 @@
                      title:(NSString *)paramTitle
                   subTitle:(NSString *)paramSubTitle;
 
+- (id) initWithCoordinates:(CLLocationCoordinate2D)paramCoordinates
+                     title:(NSString *)paramTitle;
 @end

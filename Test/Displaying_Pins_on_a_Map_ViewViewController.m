@@ -47,9 +47,12 @@
     
         /* Create the annotation using the location */
         MyAnnonation *annotation =
+        //[[MyAnnonation alloc] initWithCoordinates:maplocation
+        //                                    title:@"My Title"
+        //                                 subTitle:@"My Sub Title"];
+        
         [[MyAnnonation alloc] initWithCoordinates:maplocation
-                                            title:@"My Title"
-                                         subTitle:@"My Sub Title"];
+                                            title:self.markTitle];
         
         /* And eventually add it to the map */
         [self.myMapView addAnnotation:annotation];

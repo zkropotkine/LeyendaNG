@@ -202,7 +202,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wsf-NC-SZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640" y="-1740"/>
+            <point key="canvasLocation" x="593" y="-1717"/>
         </scene>
         <!--Info-->
         <scene sceneID="wg7-f3-ORb">
@@ -367,7 +367,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lZt-zc-pcl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hON-zg-xuR">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NR4-3x-Cww">
@@ -387,68 +387,6 @@
             <point key="canvasLocation" x="663" y="-77"/>
         </scene>
         <!--Lugares-->
-        <scene sceneID="m4v-P4-TAy">
-            <objects>
-                <collectionViewController id="mi2-50-d0W" customClass="CollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="BOo-kb-mjN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pqX-lN-SoM" customClass="BHPhotoAlbumLayout">
-                            <size key="itemSize" width="90" height="60"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="TVs-kn-z3f" customClass="BHAlbumPhotoCell">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePx-qJ-WNX">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7D9-Li-LM4">
-                                            <rect key="frame" x="0.0" y="33" width="90" height="27"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="nameLabel" destination="7D9-Li-LM4" id="FHv-UQ-MfG"/>
-                                    <outlet property="photoView" destination="ePx-qJ-WNX" id="SL9-PN-o6F"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="mi2-50-d0W" id="NQy-0I-akq"/>
-                            <outlet property="delegate" destination="mi2-50-d0W" id="OmS-5J-jNH"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Lugares" id="dQ0-yO-1Wd">
-                        <barButtonItem key="rightBarButtonItem" image="map_marker-24.png" style="done" id="ygx-lE-4tJ">
-                            <connections>
-                                <segue destination="Y48-AG-e4f" kind="show" identifier="placesMapSegue" id="r1f-uc-5fR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="dJt-pB-2bz" kind="show" identifier="placeTabSegue" id="mUc-fu-dmf"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBS-g6-R1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="677"/>
-        </scene>
-        <!--Lugares-->
         <scene sceneID="jZN-lI-ANd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C2v-zh-teT" sceneMemberID="viewController">
@@ -460,7 +398,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mi2-50-d0W" kind="relationship" relationship="rootViewController" id="dT5-1x-z03"/>
+                        <segue destination="Uxe-E2-xbE" kind="relationship" relationship="rootViewController" id="fde-eu-rug"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14t-wv-31e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,7 +452,7 @@
                                     </fragment>
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -690,6 +628,64 @@
             </objects>
             <point key="canvasLocation" x="2294" y="566"/>
         </scene>
+        <!--Lugares-->
+        <scene sceneID="AEp-r9-smo">
+            <objects>
+                <collectionViewController id="Uxe-E2-xbE" customClass="CollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="0SD-Yg-dft">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gln-HE-g93" customClass="BHPhotoAlbumLayout">
+                            <size key="itemSize" width="90" height="60"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="XWd-4U-3aL" customClass="BHAlbumPhotoCell">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HG7-9Z-dCu">
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="34"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uRT-44-9f9">
+                                            <rect key="frame" x="0.0" y="33" width="90" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="uRT-44-9f9" id="kuq-WZ-qRk"/>
+                                    <outlet property="photoView" destination="HG7-9Z-dCu" id="8v4-Vx-hDV"/>
+                                    <segue destination="dJt-pB-2bz" kind="show" identifier="placeTabSegue" id="kxU-pX-NDS"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="delegate" destination="Uxe-E2-xbE" id="0HQ-Bs-lA0"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Lugares" id="fip-Qq-DRN">
+                        <barButtonItem key="rightBarButtonItem" image="map_marker-24.png" style="done" id="OWv-t6-L8d"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoAlbumLayout" destination="Gln-HE-g93" id="2Bj-me-Hup"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pwf-9P-Ttp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="595"/>
+        </scene>
     </scenes>
     <resources>
         <image name="collapse-32.png" width="32" height="32"/>
@@ -699,7 +695,6 @@
         <image name="treasury_map-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r1f-uc-5fR"/>
         <segue reference="YYO-l4-nvC"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -398,6 +398,7 @@ static NSString * const reuseIdentifier = @"Cell";
     NSLog(@"Row: %d", selectedIndexPath.section);
     
     NSString *photoNameSimple = [[photoName componentsSeparatedByString:@"."] objectAtIndex:0];
+    NSLog(@"%@", photoNameSimple);
     
     NSData *data = [photoNameSimple dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *cleanPhotoName = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] stringByReplacingOccurrencesOfString:@"?" withString:@""];
@@ -405,10 +406,20 @@ static NSString * const reuseIdentifier = @"Cell";
     NSMutableString *locationKey = [NSMutableString stringWithString:cleanPhotoName];
     [locationKey appendString:@"Coord"];
     
-    //NSLog(@"%@", locationKey);
+    NSLog(@"%@", locationKey);
     
     NSString *leyendaText = NSLocalizedString(cleanPhotoName, @"");
-    NSString *leyendaLocation = NSLocalizedStringFromTable(locationKey, @"Coordinates", @"");
+    NSString *leyendaLocation;
+    
+    if ([self.navigationItem.title isEqualToString:@"Leyendas"])
+    {
+        leyendaLocation = NSLocalizedStringFromTable(locationKey, @"LegendsCoordinates", @"");
+    } else {
+        leyendaLocation = NSLocalizedStringFromTable(locationKey, @"PlacesCoordinates", @"");
+    }
+    
+    NSLog(@"%@", leyendaLocation);
+    
     
     CLLocationCoordinate2D location;
     

@@ -189,7 +189,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Leyendas" id="qlq-zc-Oec">
-                        <barButtonItem key="rightBarButtonItem" image="map_marker-32.png" style="done" id="gyS-pI-Fgr">
+                        <barButtonItem key="rightBarButtonItem" image="map_marker-24.png" style="done" id="gyS-pI-Fgr">
                             <connections>
                                 <segue destination="WsM-eS-BAq" kind="show" identifier="legendMapSegue" id="YYO-l4-nvC"/>
                             </connections>
@@ -402,7 +402,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="TVs-kn-z3f" customClass="CollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="TVs-kn-z3f" customClass="BHAlbumPhotoCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -434,7 +434,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Lugares" id="dQ0-yO-1Wd">
-                        <barButtonItem key="rightBarButtonItem" image="geo_fence-32.png" style="done" id="ygx-lE-4tJ">
+                        <barButtonItem key="rightBarButtonItem" image="map_marker-24.png" style="done" id="ygx-lE-4tJ">
                             <connections>
                                 <segue destination="Y48-AG-e4f" kind="show" identifier="placesMapSegue" id="r1f-uc-5fR"/>
                             </connections>
@@ -693,10 +693,9 @@
     </scenes>
     <resources>
         <image name="collapse-32.png" width="32" height="32"/>
-        <image name="geo_fence-32.png" width="32" height="32"/>
         <image name="info-32.png" width="32" height="32"/>
         <image name="literature-32.png" width="32" height="32"/>
-        <image name="map_marker-32.png" width="32" height="32"/>
+        <image name="map_marker-24.png" width="24" height="24"/>
         <image name="treasury_map-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -54,6 +54,12 @@
 
         dispatch_async(dispatch_get_main_queue(), ^{
             self.photoImage.image = image;
+            
+            
+            [self.photoImage setContentMode:UIViewContentModeCenter];
+            [self.photoImage setContentMode:UIViewContentModeScaleAspectFit];
+            
+            
         });
     });
 }

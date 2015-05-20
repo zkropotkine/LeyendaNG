@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [Appsee start:@"f02b9eb56759460c89a4d0e198cc9d8f"];
+    
     return YES;
 }
 

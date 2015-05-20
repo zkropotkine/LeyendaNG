@@ -56,6 +56,14 @@
         
         /* And eventually add it to the map */
         [self.myMapView addAnnotation:annotation];
+        
+        
+        //CLLocationCoordinate2D newcordinate =   CLLocationCoordinate2DMake(20.715336, -103.36146);
+        CLLocationCoordinate2D oldcordinate =   CLLocationCoordinate2DMake(20.718869,-103.360675);
+        
+        [self getPathDirections:oldcordinate withDestination:maplocation];
+        
+        
     } else {
         
         NSString *stringsPath;
@@ -115,6 +123,10 @@
         [self.myMapView setRegion:adjustedRegion animated:YES];
         self.myMapView.showsUserLocation = YES;
         NSLog(@"Deberia de jalar");
+        
+        
+        
+        
     } else {
         /* Location services are not enabled.
          Take appropriate action: for instance, prompt the
@@ -129,6 +141,10 @@
     btn.title=@"Back";
     
     self.navigationItem.backBarButtonItem=btn;
+    
+
+    
+    
 }
 
 
@@ -145,7 +161,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     //[locations lastObject];
-    NSLog(@"%@", [locations lastObject]);
+    //NSLog(@"%@", [locations lastObject]);
 }
 
 
@@ -170,7 +186,11 @@
     MKPolyline *  routeLine = [MKPolyline polylineWithPoints:pointsArray count:2];
     free(pointsArray);
     
-    [self.myMapView addOverlay:routeLine]; 
+    
+    
+    
+    
+    [self.myMapView addOverlay:routeLine];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -194,9 +214,77 @@
 }
 
 
-- (IBAction)returnHomePage:(id)sender
+-(void)getPathDirections:(CLLocationCoordinate2D)source withDestination:(CLLocationCoordinate2D)destination{
+    
+    MKPlacemark *placemarkSrc = [[MKPlacemark alloc] initWithCoordinate:source addressDictionary:nil];
+    MKMapItem *mapItemSrc = [[MKMapItem alloc] initWithPlacemark:placemarkSrc];
+    MKPlacemark *placemarkDest = [[MKPlacemark alloc] initWithCoordinate:destination addressDictionary:nil];
+    MKMapItem *mapItemDest = [[MKMapItem alloc] initWithPlacemark:placemarkDest];
+    [mapItemSrc setName:@"name1"];
+    [mapItemDest setName:@"name2"];
+    
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    [request setSource:mapItemSrc];
+    [request setDestination:mapItemDest];
+    [request setTransportType:MKDirectionsTransportTypeWalking];
+    request.requestsAlternateRoutes = NO;
+    
+    
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (!error) {
+            for (MKRoute *route in [response routes]) {
+                [_myMapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
+                // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
+            }
+        } else {
+            NSLog(@"HOOOO");
+        }
+    }];
+    
+}
+
+
+
+- (void)generateRoute {
+    CLLocationCoordinate2D newcordinate =   CLLocationCoordinate2DMake(20.715336, -103.36146);
+    MKPlacemark *placemarkSrc = [[MKPlacemark alloc] initWithCoordinate:newcordinate addressDictionary:nil];
+    MKMapItem *mapItemSrc = [[MKMapItem alloc] initWithPlacemark:placemarkSrc];
+    
+    
+    
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    request.source = [MKMapItem mapItemForCurrentLocation];
+    request.destination = mapItemSrc;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    
+    [directions calculateDirectionsWithCompletionHandler:
+     ^(MKDirectionsResponse *response, NSError *error) {
+         if (error) {
+             // Handle Error
+         } else {
+             [self showRoute:response];
+         }
+     }];
+}
+
+- (void)showRoute:(MKDirectionsResponse *)response {
+    [self.myMapView removeOverlays:self.myMapView.overlays];
+    for (MKRoute *route in response.routes)
+    {
+        [self.myMapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+    }
+    //[self fitRegionToRoute];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id < MKOverlay >)overlay
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.alpha = 0.7;
+    renderer.lineWidth = 4.0;
+    
+    return renderer;
 }
 
 @end
